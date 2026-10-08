@@ -4,39 +4,6 @@ const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
 const fmtM = v => v>=1000 ? '$'+(v/1000).toFixed(1)+'B' : '$'+Math.round(v)+'M';
 const $ = id => document.getElementById(id);
 
-/* ================= Timelines — horizontal navigation (markup is pre-rendered by the build) ================= */
-function initTimelines(){
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('[data-tl]').forEach(tl=>{
-    const vp=tl.querySelector('.tl__viewport'), prev=tl.querySelector('[data-dir="-1"]'), next=tl.querySelector('[data-dir="1"]');
-    const prog=tl.querySelector('.tl__progress'), track=prog.querySelector('.tl__bar-track'), thumb=prog.querySelector('.tl__bar-thumb'), first=tl.querySelector('.tyear');
-    const max=()=>Math.max(vp.scrollWidth-vp.clientWidth,0);
-    const colW=()=>first.getBoundingClientRect().width;
-    const step=()=>colW()*Math.max(1,Math.floor(vp.clientWidth/colW())-1);
-    const behavior=()=>reduce?'auto':'smooth';
-    const update=()=>{
-      const m=max(), x=vp.scrollLeft, ratio=m?vp.clientWidth/vp.scrollWidth:1;
-      tl.classList.toggle('is-start',x<=2); tl.classList.toggle('is-end',x>=m-2);
-      prev.disabled=x<=2; next.disabled=x>=m-2;
-      const trackW=track.clientWidth, thumbW=Math.max(trackW*ratio,36);
-      thumb.style.width=thumbW+'px'; thumb.style.transform='translateX('+(m?(x/m)*(trackW-thumbW):0)+'px)';
-      prog.setAttribute('aria-valuenow',m?Math.round(x/m*100):100);
-    };
-    prev.addEventListener('click',()=>vp.scrollBy({left:-step(),behavior:behavior()}));
-    next.addEventListener('click',()=>vp.scrollBy({left:step(),behavior:behavior()}));
-    vp.addEventListener('scroll',update,{passive:true});
-    window.addEventListener('resize',update);
-    // drag / click on the progress bar to scrub the timeline
-    let dragging=false;
-    const scrub=e=>{ const r=track.getBoundingClientRect(); vp.scrollLeft=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))*max(); };
-    prog.addEventListener('pointerdown',e=>{ dragging=true; prog.setPointerCapture(e.pointerId); vp.style.scrollSnapType='none'; scrub(e); });
-    prog.addEventListener('pointermove',e=>{ if(dragging) scrub(e); });
-    const end=()=>{ dragging=false; vp.style.scrollSnapType=''; };
-    prog.addEventListener('pointerup',end); prog.addEventListener('pointercancel',end);
-    update();
-  });
-}
-
 /* ================= Aurora scale (one square = one truck, drawn to scale) ================= */
 function renderScale(){
   const c=3.1, cols=200, rows=150, x0=6, gy=34;
@@ -88,14 +55,14 @@ function renderCapital(){
   const later=ys.filter(d=>d.y>2021).reduce((s,d)=>s+d.total,0), y21=ys.find(d=>d.y===2021);
   h+=`<div class="ybars__x">`+ys.map(d=>`<span class="${d.y===2021?'hi':''}">${d.y}${d.y===2026?' YTD':''}</span>`).join('')+'</div>';
   h+=`<div class="ybars__sum"><b>2022–2026 combined: ${fmtM(later)}</b> across five years, against ${fmtM(y21.total)} in 2021 alone</div>`;
-  h=`<div class="ybars__note"><b>2021 listing wave:</b> TuSimple IPO, Aurora and Embark SPACs — ${fmtM(y21.avPub)} of the year's ${fmtM(y21.total)}</div>`+h;
+  h=`<div class="ybars__note"><b>2021 listing wave:</b> TuSimple IPO, Aurora and Embark SPACs, ${fmtM(y21.avPub)} of the year's ${fmtM(y21.total)}</div>`+h;
   $('ybars').innerHTML=h;
 }
 
 /* ================= V3 — ambition vs outcome ================= */
 const AO = [
   {co:'Nikola',kind:'Peak market value · 2020',amb:'~$26–30B',st:'closed',stL:'Chapter 11',out:'Chapter 11, 2025',note:'About $47M cash at filing'},
-  {co:'Embark',kind:'SPAC valuation · 2021',amb:'$5.2B',st:'closed',stL:'Sold',outKind:'Acquisition price',out:'Sold for ~$71M, Aug 2023',note:'Acquired by Applied Intuition — about 1% of the SPAC valuation',contrast:[5200,71]},
+  {co:'Embark',kind:'SPAC valuation · 2021',amb:'$5.2B',st:'closed',stL:'Sold',outKind:'Acquisition price',out:'Sold for ~$71M, Aug 2023',note:'Acquired by Applied Intuition, about 1% of the SPAC valuation',contrast:[5200,71]},
   {co:'TuSimple',kind:'IPO proceeds · April 2021',amb:'$1.35B',st:'other',stL:'Exited US',out:'US wind-down, Dec 2023',note:'Exit from the US market'},
   {co:'Volta Trucks',kind:'Capital raised in total',amb:'$390.9M',st:'closed',stL:'Bankrupt',out:'Bankruptcy, Oct 2023',note:'Assets bought by Luxor Capital, its largest creditor'},
   {co:'Windrose',kind:'Series B raised · April 2024',amb:'$110M',st:'other',stL:'Distress reported',out:'Distress reported, Jul 2026',note:'WSJ: missing paychecks and a truck'}
@@ -111,7 +78,7 @@ function renderExits(){
   }).join('');
   const main=new Set(AO.map(a=>a.co));
   $('ao-minor').innerHTML=DATA.exits.filter(d=>!main.has(d.co)).map(d=>
-    `<li><div><b>${esc(d.co)}</b> <span class="chip chip--${d.seg.toLowerCase()}">${d.seg}</span></div><span><b>${d.y} · ${esc(d.out)}</b> — ${esc(d.ctx)}</span></li>`).join('');
+    `<li><div><b>${esc(d.co)}</b> <span class="chip chip--${d.seg.toLowerCase()}">${d.seg}</span></div><span><b>${d.y}: ${esc(d.out)}.</b> ${esc(d.ctx)}</span></li>`).join('');
 }
 
 /* ================= V4 — map ================= */
@@ -225,7 +192,6 @@ function renderHubs(E){
 }
 
 /* ================= boot ================= */
-initTimelines();
 renderScale();
 renderCapital();
 renderExits();

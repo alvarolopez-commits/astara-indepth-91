@@ -16,3 +16,5 @@ deploy/*
 !_build/
 !_build/*
 _build/__pycache__/
+
+.vercel

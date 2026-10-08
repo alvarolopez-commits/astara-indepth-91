@@ -5,6 +5,7 @@
 <title>Two Revolutions, One Truck — Astara Intelligence In Depth #91</title>
 <meta name="description" content="The electrification and autonomy of heavy freight, 2019–2026. Astara Intelligence In Depth #91.">
 <meta name="theme-color" content="#221E41">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -190,37 +191,61 @@ a:hover{color:#B3DDFF;}
 .ladder__v--act{color:var(--accent);}
 .ladder__t{font-size:var(--fs-small);line-height:1.4;color:var(--txt-muted);display:flex;gap:var(--sp-1);align-items:center;flex-wrap:wrap;}
 
-/* ch02/03 — phased history */
-.hist{margin-top:var(--sp-5);}
-.hphase{display:grid;gap:var(--sp-4);padding:var(--sp-6) 0;border-top:1px solid var(--border);}
-.hphase:first-of-type{border-top:none;padding-top:var(--sp-4);}
-.hphase__num{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
-.hphase__name{font-size:var(--fs-h2);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--txt);margin-top:var(--sp-1);}
-.hphase__yrs{font-size:15px;font-weight:700;color:var(--accent);margin-top:var(--sp-1);font-variant-numeric:lining-nums tabular-nums;}
-.hphase__dek{font-size:var(--fs-small);line-height:1.55;color:var(--txt-muted);margin-top:var(--sp-2);max-width:240px;}
+/* ch02/03 — horizontal timelines (one component: line, years, cards; phases are a quiet band) */
 .hlabel{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-muted);margin-bottom:var(--sp-3);}
-.hlabel--sub{margin-top:var(--sp-5);}
-.hkeys{display:grid;gap:var(--sp-3);}
-@media(min-width:640px){.hkeys{grid-template-columns:repeat(2,minmax(0,1fr));}}
-.hcard{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:var(--sp-4);}
-.hcard--tgt{border-style:dashed;border-color:rgba(220,229,237,.4);background:transparent;}
-.hcard__top{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap;}
-.hcard__y{font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--accent);font-variant-numeric:lining-nums tabular-nums;}
-.hcard__cat{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--txt-muted);}
-.hcard__cat i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none;}
-.hcard__co{font-size:var(--fs-h3);font-weight:700;line-height:1.25;color:var(--txt);margin-top:var(--sp-2);}
-.hcard__t{font-size:var(--fs-card);line-height:1.55;color:var(--txt-sec);margin-top:6px;}
-.hlist{list-style:none;}
-.hlist li{break-inside:avoid;margin-bottom:var(--sp-3);}
-@media(min-width:1100px){.hlist{column-count:2;column-gap:var(--sp-5);}}
-.hrow{display:grid;grid-template-columns:44px 1fr;gap:var(--sp-2);align-items:start;font-size:var(--fs-small);line-height:1.55;color:var(--txt-muted);}
-.hrow__y{font-size:14px;font-weight:700;color:var(--txt-sec);font-variant-numeric:lining-nums tabular-nums;display:flex;align-items:center;gap:6px;}
-.hrow__y i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none;}
-.hrow b{color:var(--txt);font-weight:700;}
-@media(min-width:960px){
-  .hphase{grid-template-columns:240px minmax(0,1fr);gap:var(--sp-6);}
-  .hphase__head{position:sticky;top:var(--sp-5);align-self:start;}
-}
+.fig__frame{--fp:var(--sp-3);}
+@media(min-width:768px){.fig__frame{--fp:var(--sp-5);}}
+.tl{--yw:268px;--dm:1;--bg-key:#333A60;position:relative;margin:var(--sp-4) calc(-1*var(--fp)) 0;}
+@media(min-width:640px){.tl{--yw:320px;--dm:2;}}
+@media(min-width:1100px){.tl{--yw:360px;}}
+.tl__bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-3);padding:0 var(--fp);}
+.tl__bar .key-legend{margin-top:0;flex:1 1 420px;}
+.tl__nav{display:none;gap:var(--sp-1);}
+.js .tl__nav{display:flex;}
+.tl__btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(139,205,255,.5);background:transparent;color:var(--accent);cursor:pointer;display:grid;place-items:center;transition:background .2s,opacity .2s;}
+.tl__btn svg{width:18px;height:18px;}
+.tl__btn:hover:not(:disabled){background:rgba(139,205,255,.14);}
+.tl__btn:disabled{opacity:.3;cursor:default;}
+.tl__btn:focus-visible,.tl__viewport:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.tl__viewport{margin-top:var(--sp-5);overflow-x:auto;overflow-y:hidden;padding:0 var(--fp) var(--sp-4);scroll-snap-type:x proximity;scroll-padding-inline:var(--fp);overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-color:var(--accent) var(--bg-nest);scrollbar-width:thin;}
+.js .tl__viewport{scrollbar-width:none;}
+.js .tl__viewport::-webkit-scrollbar{display:none;}
+.tl__phases{display:grid;grid-template-columns:var(--cols);margin-bottom:var(--sp-5);}
+.tphase{margin-right:var(--sp-3);border-top:1px solid var(--line-muted);}
+.tphase__label{position:sticky;left:0;display:inline-block;max-width:calc(var(--yw) - var(--sp-5));padding-top:var(--sp-2);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-muted);line-height:1.4;font-variant-numeric:lining-nums tabular-nums;}
+.tphase__label b{color:var(--txt-sec);font-weight:700;}
+.tl__years{list-style:none;display:grid;grid-template-columns:var(--cols);position:relative;}
+.tl__years::before{content:"";position:absolute;left:7px;right:0;top:6px;height:2px;background:linear-gradient(90deg,var(--line-muted),var(--line-muted) 96%,rgba(90,122,148,0));}
+.tyear{scroll-snap-align:start;padding-right:var(--sp-4);min-width:0;}
+.tyear__head{position:relative;padding-top:var(--sp-4);}
+.tyear__head::before{content:"";position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg-card);}
+.tyear__label{display:block;font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1;color:var(--accent);font-variant-numeric:lining-nums tabular-nums;}
+@media(min-width:900px){.tyear__label{font-size:30px;}}
+.tyear__events{list-style:none;display:grid;gap:var(--sp-2);margin-top:var(--sp-4);}
+.tyear__empty{margin-top:var(--sp-4);font-size:var(--fs-small);line-height:1.5;color:var(--txt-muted);}
+.tcard{background:var(--bg-nest);border:1px solid var(--border);border-radius:12px;padding:var(--sp-3) 14px;}
+.tcard--key{background:var(--bg-key);}
+.tcard--tgt{border-style:dashed;border-color:rgba(220,229,237,.4);}
+.tcard__co{display:flex;align-items:center;gap:var(--sp-1);font-size:15px;font-weight:700;line-height:1.3;color:var(--txt);}
+.tcard--key .tcard__co{font-size:16.5px;}
+.tcard__dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none;}
+.tcard__co .chip{margin-left:auto;}
+.tcard__t{font-size:14px;line-height:1.5;color:var(--txt-sec);margin-top:6px;}
+.tcard--key .tcard__t{font-size:14.5px;color:var(--txt-body);}
+.tyear--dense .tyear__events{display:block;columns:var(--dm);column-gap:10px;}
+.tyear--dense .tcard{break-inside:avoid;margin-bottom:10px;}
+.tyear--dense .tcard{padding:10px 12px;}
+.tyear--dense .tcard__t{font-size:13.5px;margin-top:4px;}
+.tl__fade{position:absolute;top:0;bottom:var(--sp-7);width:56px;pointer-events:none;z-index:2;transition:opacity .25s;display:none;}
+.js .tl__fade{display:block;}
+.tl__fade--r{right:0;background:linear-gradient(90deg,rgba(41,42,78,0),var(--bg-card) 85%);}
+.tl__fade--l{left:0;background:linear-gradient(270deg,rgba(41,42,78,0),var(--bg-card) 85%);}
+.tl.is-end .tl__fade--r,.tl.is-start .tl__fade--l{opacity:0;}
+.tl__progress{display:none;align-items:center;gap:var(--sp-3);margin:0 var(--fp);cursor:pointer;touch-action:none;user-select:none;}
+.js .tl__progress{display:flex;}
+.tl__progress span{font-size:12px;font-weight:700;color:var(--txt-sec);font-variant-numeric:lining-nums tabular-nums;}
+.tl__bar-track{flex:1;position:relative;height:6px;border-radius:3px;background:var(--bg-nest);}
+.tl__bar-thumb{position:absolute;left:0;top:0;height:6px;border-radius:3px;background:var(--accent);width:30%;}
 
 /* ch02 — price duel */
 .duel{display:grid;gap:var(--sp-3);margin-top:var(--sp-5);}
@@ -525,7 +550,74 @@ a:hover{color:#B3DDFF;}
     <div class="fig__frame">
       <div class="fig__kicker">EV timeline</div>
       <div class="fig__title">Announcements, first deliveries, real products</div>
-      <div id="hist-ev" class="hist"></div>
+      <div class="tl" data-tl>
+<div class="tl__bar"><div class="key-legend"><span><i style="background:#8BCDFF"></i>Product &amp; technology</span><span><i style="background:#3EC6C6"></i>Orders, fleets &amp; partnerships</span><span><i style="background:#B79CFF"></i>Capital, strategy &amp; policy</span><span><i style="background:#FF8F9C"></i>Failures &amp; retrenchment</span><span><i class="sq" style="background:#333A60;border:1px solid rgba(220,229,237,.3)"></i>Key milestone</span><span><span class="chip chip--tgt">Target</span> announced goal, not yet achieved</span></div><div class="tl__nav"><button type="button" class="tl__btn" data-dir="-1" aria-label="Scroll to earlier years"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="tl__btn" data-dir="1" aria-label="Scroll to later years"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+<div class="tl__fade tl__fade--l" aria-hidden="true"></div><div class="tl__fade tl__fade--r" aria-hidden="true"></div>
+<div class="tl__viewport" tabindex="0" role="region" aria-label="EV timeline 2019–2026, scrolls horizontally">
+<div class="tl__track" style="--cols:var(--yw) var(--yw) var(--yw) var(--yw) var(--yw) var(--yw) var(--yw) calc(var(--yw)*var(--dm));width:calc((7 + 1*var(--dm))*var(--yw))">
+<div class="tl__phases"><div class="tphase" style="grid-column:span 3"><span class="tphase__label">Phase 01 · <b>The announcements</b></span></div><div class="tphase" style="grid-column:span 2"><span class="tphase__label">Phase 02 · <b>First deliveries, first failures</b></span></div><div class="tphase" style="grid-column:span 3"><span class="tphase__label">Phase 03 · <b>Real products</b></span></div></div>
+<ol class="tl__years">
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2019</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Traton</span></div><p class="tcard__t">Commits billions to e-mobility</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2020</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Nikola</span></div><p class="tcard__t">Goes public via SPAC, opening the 2020–21 capital wave</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Mercedes-Benz Trucks</span></div><p class="tcard__t">Unveils the eActros LongHaul: long-haul enters OEM roadmaps</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volvo Trucks</span></div><p class="tcard__t">Pledges to electrify its entire line-up</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2021</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Transport &amp; Environment</span></div><p class="tcard__t">Study: electric trucks close to cost parity with diesel</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2022</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volta Trucks</span></div><p class="tcard__t">Closes a €230M round, the peak of European e-truck start-up funding</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volvo Trucks</span></div><p class="tcard__t">Receives a record electric-truck order from Maersk</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Renault Trucks</span></div><p class="tcard__t">Opens its heavy electric range for orders</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+<li class="tcard tcard--key" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Tesla</span></div><p class="tcard__t">Starts Semi deliveries, first to PepsiCo</p><span class="sr-only">Category: Product &amp; technology. Key milestone.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2023</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Nikola</span></div><p class="tcard__t">Cuts 23% of its workforce</p><span class="sr-only">Category: Failures &amp; retrenchment.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Mercedes-Benz Trucks</span></div><p class="tcard__t">40-tonne eActros 600 drives 1,000 km with a single charging stop</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+<li class="tcard tcard--key" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volta Trucks</span></div><p class="tcard__t">Files for bankruptcy after raising $390.9M</p><span class="sr-only">Category: Failures &amp; retrenchment. Key milestone.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2024</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Amazon</span></div><p class="tcard__t">Puts its first electric semis into freight operations</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2025</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Nikola</span></div><p class="tcard__t">Files for Chapter 11; peak market value was ~$26–30B in 2020</p><span class="sr-only">Category: Failures &amp; retrenchment. Key milestone.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Harbinger</span></div><p class="tcard__t">Raises a $160M Series C co-led by FedEx</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+<li class="tcard" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Bollinger Motors</span></div><p class="tcard__t">Shuts down amid financial woes</p><span class="sr-only">Category: Failures &amp; retrenchment.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Kenworth / Peterbilt</span></div><p class="tcard__t">Launch new electric trucks for North America</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+</ul>
+</li>
+<li class="tyear tyear--dense"><div class="tyear__head"><span class="tyear__label">2026</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Tesla</span></div><p class="tcard__t">Semi&#x27;s first truck rolls off the high-volume production line</p><span class="sr-only">Category: Product &amp; technology. Key milestone.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Tesla</span></div><p class="tcard__t">Confirms an 822 kWh battery for the Semi</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+<li class="tcard" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Windrose</span></div><p class="tcard__t">Tesla Semi challenger reported to be missing paychecks and a truck</p><span class="sr-only">Category: Failures &amp; retrenchment.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Mars / Rewe</span></div><p class="tcard__t">Deploy 47 battery-electric trucks on a shared pilot corridor</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Amazon</span></div><p class="tcard__t">Receives its first eActros 600 trucks in Germany</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard tcard--key" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>BYD</span></div><p class="tcard__t">Brings the ETT 44 to Europe: 600 km range, 20-minute charge</p><span class="sr-only">Category: Product &amp; technology. Key milestone.</span></li>
+<li class="tcard tcard--key" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volvo Trucks</span></div><p class="tcard__t">Starts production of the FH Aero Electric</p><span class="sr-only">Category: Product &amp; technology. Key milestone.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Scania</span></div><p class="tcard__t">Announces a battery solution for 720 km of range</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>FedEx / Harbinger</span></div><p class="tcard__t">FedEx orders 2,000 electric trucks in a $300M deal</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+</ul>
+</li>
+</ol></div></div>
+<div class="tl__progress" role="progressbar" aria-label="Position in the timeline" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span>2019</span><div class="tl__bar-track"><i class="tl__bar-thumb"></i></div><span>2026</span></div>
+</div>
     </div>
     <figcaption><span data-pdf="v1">From 2019 roadmaps and early funding to series production, longer-range trucks and the arrival of Chinese entrants in Europe.</span> Selection of events from the Astara Intelligence truck database; key milestones are the turning points named in the text.</figcaption>
   </figure>
@@ -570,7 +662,78 @@ a:hover{color:#B3DDFF;}
     <div class="fig__frame">
       <div class="fig__kicker">AV timeline</div>
       <div class="fig__title">Pilots, public-market excitement, reality check, driverless freight</div>
-      <div id="hist-av" class="hist"></div>
+      <div class="tl" data-tl>
+<div class="tl__bar"><div class="key-legend"><span><i style="background:#8BCDFF"></i>Product &amp; technology</span><span><i style="background:#3EC6C6"></i>Orders, fleets &amp; partnerships</span><span><i style="background:#B79CFF"></i>Capital, strategy &amp; policy</span><span><i style="background:#FF8F9C"></i>Failures &amp; retrenchment</span><span><i class="sq" style="background:#333A60;border:1px solid rgba(220,229,237,.3)"></i>Key milestone</span><span><span class="chip chip--tgt">Target</span> announced goal, not yet achieved</span></div><div class="tl__nav"><button type="button" class="tl__btn" data-dir="-1" aria-label="Scroll to earlier years"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="tl__btn" data-dir="1" aria-label="Scroll to later years"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+<div class="tl__fade tl__fade--l" aria-hidden="true"></div><div class="tl__fade tl__fade--r" aria-hidden="true"></div>
+<div class="tl__viewport" tabindex="0" role="region" aria-label="AV timeline 2019–2026, scrolls horizontally">
+<div class="tl__track" style="--cols:var(--yw) var(--yw) calc(var(--yw)*var(--dm)) var(--yw) var(--yw) var(--yw) var(--yw) calc(var(--yw)*var(--dm));width:calc((6 + 2*var(--dm))*var(--yw))">
+<div class="tl__phases"><div class="tphase" style="grid-column:span 2"><span class="tphase__label">Phase 01 · <b>Pilots and experiments</b></span></div><div class="tphase" style="grid-column:span 1"><span class="tphase__label">Phase 02 · <b>Public-market excitement</b></span></div><div class="tphase" style="grid-column:span 3"><span class="tphase__label">Phase 03 · <b>Tested by reality</b></span></div><div class="tphase" style="grid-column:span 2"><span class="tphase__label">Phase 04 · <b>Driverless on real freight lanes</b></span></div></div>
+<ol class="tl__years">
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2019</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Daimler Truck</span></div><p class="tcard__t">Buys a stake in Torc Robotics</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard tcard--key" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Starsky Robotics</span></div><p class="tcard__t">Runs the first uncrewed truck at highway speed (55 mph)</p><span class="sr-only">Category: Product &amp; technology. Key milestone.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2020</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Starsky Robotics</span></div><p class="tcard__t">Shuts down after failing to find a buyer or investors</p><span class="sr-only">Category: Failures &amp; retrenchment.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Waymo / Daimler Truck</span></div><p class="tcard__t">Waymo Driver is to power Daimler trucks</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+</ul>
+</li>
+<li class="tyear tyear--dense"><div class="tyear__head"><span class="tyear__label">2021</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volvo / Aurora</span></div><p class="tcard__t">Partner on autonomous transport solutions</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>TuSimple</span></div><p class="tcard__t">IPO raises $1.35B, peak of the AV-trucking capital cycle</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Embark</span></div><p class="tcard__t">Announces a SPAC deal at a $5.2B valuation</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard tcard--key" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Aurora</span></div><p class="tcard__t">Lists on Nasdaq via SPAC, ~$1.8B gross proceeds</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>TuSimple / Navistar / DHL</span></div><p class="tcard__t">Sell 100 self-driving trucks to DHL</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>TuSimple</span></div><p class="tcard__t">Completes its first driverless run on public roads</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2022</span></div>
+<p class="tyear__empty">No selected events this year.</p>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2023</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Waymo Via</span></div><p class="tcard__t">Pauses its trucking programme</p><span class="sr-only">Category: Failures &amp; retrenchment. Key milestone.</span></li>
+<li class="tcard tcard--key" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Embark</span></div><p class="tcard__t">Sold to Applied Intuition for ~$71M, about 1% of its SPAC valuation</p><span class="sr-only">Category: Failures &amp; retrenchment. Key milestone.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Pony.ai</span></div><p class="tcard__t">Wins its first autonomous trucking licence in Guangzhou</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+<li class="tcard tcard--key" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>TuSimple</span></div><p class="tcard__t">Winds down its US operations</p><span class="sr-only">Category: Failures &amp; retrenchment. Key milestone.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2024</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Aurora / Uber Freight</span></div><p class="tcard__t">Sign a long-term driverless truck deal after a pilot</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volvo / DHL</span></div><p class="tcard__t">Begin autonomous truck operations</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+</ul>
+</li>
+<li class="tyear"><div class="tyear__head"><span class="tyear__label">2025</span></div>
+<ul class="tyear__events">
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Waabi / Volvo</span></div><p class="tcard__t">Partner on the Volvo VNL Autonomous</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard tcard--key" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Aurora</span></div><p class="tcard__t">Launches commercial driverless operations in Texas</p><span class="sr-only">Category: Orders, fleets &amp; partnerships. Key milestone.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Kodiak</span></div><p class="tcard__t">Lists via SPAC</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+<li class="tcard" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Einride</span></div><p class="tcard__t">Completes the world&#x27;s first autonomous border crossing</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Einride</span></div><p class="tcard__t">Announces a SPAC with Legato at a $1.8B valuation</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+</ul>
+</li>
+<li class="tyear tyear--dense"><div class="tyear__head"><span class="tyear__label">2026</span></div>
+<ul class="tyear__events">
+<li class="tcard tcard--key" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Gatik</span></div><p class="tcard__t">Operates fully driverless trucks at commercial scale</p><span class="sr-only">Category: Orders, fleets &amp; partnerships. Key milestone.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Waabi</span></div><p class="tcard__t">Raises a $750M Series C, the largest private AV-truck round in the set</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+<li class="tcard" style="--c:#FF8F9C"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>PlusAI</span></div><p class="tcard__t">SPAC business combination terminated</p><span class="sr-only">Category: Failures &amp; retrenchment.</span></li>
+<li class="tcard" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>California DMV</span></div><p class="tcard__t">Finalises rules opening the state to heavy-duty autonomous trucks</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+<li class="tcard tcard--tgt" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Aurora</span><span class="chip chip--tgt">Target</span></div><p class="tcard__t">Selected by a leading carrier to scale to 500 trucks</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+<li class="tcard tcard--tgt" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Volvo</span><span class="chip chip--tgt">Target</span></div><p class="tcard__t">Targets a $3B autonomous business within five years</p><span class="sr-only">Category: Capital, strategy &amp; policy.</span></li>
+<li class="tcard tcard--key" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Einride / Lidl</span></div><p class="tcard__t">Launch the first cab-less truck on a German public road</p><span class="sr-only">Category: Orders, fleets &amp; partnerships. Key milestone.</span></li>
+<li class="tcard" style="--c:#8BCDFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Pony.ai / GAC</span></div><p class="tcard__t">Unveil the Gen-4 robotruck, with European sales targeted</p><span class="sr-only">Category: Product &amp; technology.</span></li>
+<li class="tcard tcard--key tcard--tgt" style="--c:#B79CFF"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Aurora</span><span class="chip chip--tgt">Target</span></div><p class="tcard__t">Targets 30,000 driverless trucks by 2030, from about 20 today</p><span class="sr-only">Category: Capital, strategy &amp; policy. Key milestone.</span></li>
+<li class="tcard tcard--tgt" style="--c:#3EC6C6"><div class="tcard__co"><i class="tcard__dot" aria-hidden="true"></i><span>Kodiak</span><span class="chip chip--tgt">Target</span></div><p class="tcard__t">Picks Dallas–Houston for its driverless long-haul launch</p><span class="sr-only">Category: Orders, fleets &amp; partnerships.</span></li>
+</ul>
+</li>
+</ol></div></div>
+<div class="tl__progress" role="progressbar" aria-label="Position in the timeline" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span>2019</span><div class="tl__bar-track"><i class="tl__bar-thumb"></i></div><span>2026</span></div>
+</div>
     </div>
     <figcaption><span data-pdf="v2">The path from pilots and SPACs to commercial driverless freight, with failures and pauses visible alongside the launches.</span> Selection of events from the Astara Intelligence truck database; key milestones are the turning points named in the text.</figcaption>
   </figure>
@@ -786,6 +949,47 @@ a:hover{color:#B3DDFF;}
 <script src="deploy/countries-110m.js"></script>
 <script>
 const DATA = {
+ "phases": {
+  "ev": [
+   {
+    "name": "The announcements",
+    "from": 2019,
+    "to": 2021
+   },
+   {
+    "name": "First deliveries, first failures",
+    "from": 2022,
+    "to": 2023
+   },
+   {
+    "name": "Real products",
+    "from": 2024,
+    "to": 2026
+   }
+  ],
+  "av": [
+   {
+    "name": "Pilots and experiments",
+    "from": 2019,
+    "to": 2020
+   },
+   {
+    "name": "Public-market excitement",
+    "from": 2021,
+    "to": 2021
+   },
+   {
+    "name": "Tested by reality",
+    "from": 2022,
+    "to": 2024
+   },
+   {
+    "name": "Driverless on real freight lanes",
+    "from": 2025,
+    "to": 2026
+   }
+  ]
+ },
  "ev": [
   {
    "y": 2019,
@@ -2062,56 +2266,40 @@ const DATA = {
 };
 
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const fmtM = v => v>=1000 ? '$'+(v/1000).toFixed(1)+'B' : '$'+Math.round(v)+'M';
 const $ = id => document.getElementById(id);
 
-/* Category colours (charts and chips only). All numbers use Montserrat via the stylesheet. */
-const GROUPS = {
-  product:{label:'Product & technology',color:'#8BCDFF'},
-  deploy:{label:'Orders, fleets & partnerships',color:'#3EC6C6'},
-  capital:{label:'Funding, strategy & policy',color:'#B79CFF'},
-  fail:{label:'Failures & retrenchment',color:'#FF8F9C'}
-};
-
-/* ================= V1 / V2 — phased histories ================= */
-const PHASES = {
-  ev:[
-    {name:'The announcements',dek:'Roadmaps and start-up capital',from:2019,to:2021},
-    {name:'First deliveries, first failures',dek:'Orders arrive; the capital cycle turns',from:2022,to:2023},
-    {name:'Real products',dek:'Series production and international competition',from:2024,to:2026}
-  ],
-  av:[
-    {name:'Pilots and experiments',dek:'Uncrewed runs and OEM tie-ups',from:2019,to:2020},
-    {name:'Public-market excitement',dek:'IPO and SPAC listings',from:2021,to:2021},
-    {name:'Tested by reality',dek:'Pauses, exits and a sale',from:2022,to:2024},
-    {name:'Driverless on real freight lanes',dek:'Commercial service begins',from:2025,to:2026}
-  ]
-};
-function renderHistory(id,key){
-  const items=DATA[key], phases=PHASES[key];
-  let h='<div class="key-legend" style="margin-top:var(--sp-3)">'+Object.values(GROUPS).map(g=>`<span><i style="background:${g.color}"></i>${g.label}</span>`).join('')+
-        '<span><span class="chip chip--tgt">Target</span> announced goal or plan, not yet achieved</span></div>';
-  phases.forEach((p,i)=>{
-    const evs=items.filter(d=>d.y>=p.from&&d.y<=p.to);
-    const keys=evs.filter(d=>d.key), rest=evs.filter(d=>!d.key);
-    const yrs=p.from===p.to?`${p.from}`:`${p.from}–${p.to}`;
-    h+=`<section class="hphase" aria-label="Phase ${i+1}: ${esc(p.name)}"><header class="hphase__head"><div class="hphase__num">Phase 0${i+1}</div><h4 class="hphase__name">${p.name}</h4><div class="hphase__yrs">${yrs}</div><p class="hphase__dek">${p.dek}</p></header><div class="hphase__body">`;
-    if(keys.length){
-      h+='<div class="hlabel">Key milestones</div><div class="hkeys">'+keys.map(d=>{
-        const g=GROUPS[d.g];
-        return `<article class="hcard${d.tgt?' hcard--tgt':''}" style="--c:${g.color}"><div class="hcard__top"><span class="hcard__y">${d.y}</span><span class="hcard__cat"><i></i>${g.label}</span>${d.tgt?'<span class="chip chip--tgt">Target</span>':''}</div><h5 class="hcard__co">${esc(d.who)}</h5><p class="hcard__t">${esc(cap(d.t))}</p></article>`;
-      }).join('')+'</div>';
-    }
-    if(rest.length){
-      h+=`<div class="hlabel${keys.length?' hlabel--sub':''}">Supporting events</div><ul class="hlist">`+rest.map(d=>{
-        const g=GROUPS[d.g];
-        return `<li class="hrow" style="--c:${g.color}" title="${g.label}"><span class="hrow__y"><i></i>${d.y}</span><span><b>${esc(d.who)}</b> ${esc(d.t)}${d.tgt?' <span class="chip chip--tgt">Target</span>':''}</span></li>`;
-      }).join('')+'</ul>';
-    }
-    h+='</div></section>';
+/* ================= Timelines — horizontal navigation (markup is pre-rendered by the build) ================= */
+function initTimelines(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-tl]').forEach(tl=>{
+    const vp=tl.querySelector('.tl__viewport'), prev=tl.querySelector('[data-dir="-1"]'), next=tl.querySelector('[data-dir="1"]');
+    const prog=tl.querySelector('.tl__progress'), track=prog.querySelector('.tl__bar-track'), thumb=prog.querySelector('.tl__bar-thumb'), first=tl.querySelector('.tyear');
+    const max=()=>Math.max(vp.scrollWidth-vp.clientWidth,0);
+    const colW=()=>first.getBoundingClientRect().width;
+    const step=()=>colW()*Math.max(1,Math.floor(vp.clientWidth/colW())-1);
+    const behavior=()=>reduce?'auto':'smooth';
+    const update=()=>{
+      const m=max(), x=vp.scrollLeft, ratio=m?vp.clientWidth/vp.scrollWidth:1;
+      tl.classList.toggle('is-start',x<=2); tl.classList.toggle('is-end',x>=m-2);
+      prev.disabled=x<=2; next.disabled=x>=m-2;
+      const trackW=track.clientWidth, thumbW=Math.max(trackW*ratio,36);
+      thumb.style.width=thumbW+'px'; thumb.style.transform='translateX('+(m?(x/m)*(trackW-thumbW):0)+'px)';
+      prog.setAttribute('aria-valuenow',m?Math.round(x/m*100):100);
+    };
+    prev.addEventListener('click',()=>vp.scrollBy({left:-step(),behavior:behavior()}));
+    next.addEventListener('click',()=>vp.scrollBy({left:step(),behavior:behavior()}));
+    vp.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+    // drag / click on the progress bar to scrub the timeline
+    let dragging=false;
+    const scrub=e=>{ const r=track.getBoundingClientRect(); vp.scrollLeft=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))*max(); };
+    prog.addEventListener('pointerdown',e=>{ dragging=true; prog.setPointerCapture(e.pointerId); vp.style.scrollSnapType='none'; scrub(e); });
+    prog.addEventListener('pointermove',e=>{ if(dragging) scrub(e); });
+    const end=()=>{ dragging=false; vp.style.scrollSnapType=''; };
+    prog.addEventListener('pointerup',end); prog.addEventListener('pointercancel',end);
+    update();
   });
-  $(id).innerHTML=h;
 }
 
 /* ================= Aurora scale (one square = one truck, drawn to scale) ================= */
@@ -2302,8 +2490,7 @@ function renderHubs(E){
 }
 
 /* ================= boot ================= */
-renderHistory('hist-ev','ev');
-renderHistory('hist-av','av');
+initTimelines();
 renderScale();
 renderCapital();
 renderExits();

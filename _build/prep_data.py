@@ -160,7 +160,22 @@ alli = {
     "links": [{"source": e["s"], "target": e["t"], "seg": sorted(e["seg"])[0] if len(e["seg"]) == 1 else "BOTH"} for e in edges.values()],
 }
 
+PHASES = {
+    "ev": [
+        {"name": "The announcements", "from": 2019, "to": 2021},
+        {"name": "First deliveries, first failures", "from": 2022, "to": 2023},
+        {"name": "Real products", "from": 2024, "to": 2026},
+    ],
+    "av": [
+        {"name": "Pilots and experiments", "from": 2019, "to": 2020},
+        {"name": "Public-market excitement", "from": 2021, "to": 2021},
+        {"name": "Tested by reality", "from": 2022, "to": 2024},
+        {"name": "Driverless on real freight lanes", "from": 2025, "to": 2026},
+    ],
+}
+
 data = {
+    "phases": PHASES,
     "ev": timeline("02_Timeline_EV", EV, EV_KEY, EV_TGT),
     "av": timeline("03_Timeline_AV", AV, AV_KEY, AV_TGT),
     "exits": exits,

@@ -1,56 +1,40 @@
 const DATA = /*__DATA__*/null;
 
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const fmtM = v => v>=1000 ? '$'+(v/1000).toFixed(1)+'B' : '$'+Math.round(v)+'M';
 const $ = id => document.getElementById(id);
 
-/* Category colours (charts and chips only). All numbers use Montserrat via the stylesheet. */
-const GROUPS = {
-  product:{label:'Product & technology',color:'#8BCDFF'},
-  deploy:{label:'Orders, fleets & partnerships',color:'#3EC6C6'},
-  capital:{label:'Funding, strategy & policy',color:'#B79CFF'},
-  fail:{label:'Failures & retrenchment',color:'#FF8F9C'}
-};
-
-/* ================= V1 / V2 — phased histories ================= */
-const PHASES = {
-  ev:[
-    {name:'The announcements',dek:'Roadmaps and start-up capital',from:2019,to:2021},
-    {name:'First deliveries, first failures',dek:'Orders arrive; the capital cycle turns',from:2022,to:2023},
-    {name:'Real products',dek:'Series production and international competition',from:2024,to:2026}
-  ],
-  av:[
-    {name:'Pilots and experiments',dek:'Uncrewed runs and OEM tie-ups',from:2019,to:2020},
-    {name:'Public-market excitement',dek:'IPO and SPAC listings',from:2021,to:2021},
-    {name:'Tested by reality',dek:'Pauses, exits and a sale',from:2022,to:2024},
-    {name:'Driverless on real freight lanes',dek:'Commercial service begins',from:2025,to:2026}
-  ]
-};
-function renderHistory(id,key){
-  const items=DATA[key], phases=PHASES[key];
-  let h='<div class="key-legend" style="margin-top:var(--sp-3)">'+Object.values(GROUPS).map(g=>`<span><i style="background:${g.color}"></i>${g.label}</span>`).join('')+
-        '<span><span class="chip chip--tgt">Target</span> announced goal or plan, not yet achieved</span></div>';
-  phases.forEach((p,i)=>{
-    const evs=items.filter(d=>d.y>=p.from&&d.y<=p.to);
-    const keys=evs.filter(d=>d.key), rest=evs.filter(d=>!d.key);
-    const yrs=p.from===p.to?`${p.from}`:`${p.from}–${p.to}`;
-    h+=`<section class="hphase" aria-label="Phase ${i+1}: ${esc(p.name)}"><header class="hphase__head"><div class="hphase__num">Phase 0${i+1}</div><h4 class="hphase__name">${p.name}</h4><div class="hphase__yrs">${yrs}</div><p class="hphase__dek">${p.dek}</p></header><div class="hphase__body">`;
-    if(keys.length){
-      h+='<div class="hlabel">Key milestones</div><div class="hkeys">'+keys.map(d=>{
-        const g=GROUPS[d.g];
-        return `<article class="hcard${d.tgt?' hcard--tgt':''}" style="--c:${g.color}"><div class="hcard__top"><span class="hcard__y">${d.y}</span><span class="hcard__cat"><i></i>${g.label}</span>${d.tgt?'<span class="chip chip--tgt">Target</span>':''}</div><h5 class="hcard__co">${esc(d.who)}</h5><p class="hcard__t">${esc(cap(d.t))}</p></article>`;
-      }).join('')+'</div>';
-    }
-    if(rest.length){
-      h+=`<div class="hlabel${keys.length?' hlabel--sub':''}">Supporting events</div><ul class="hlist">`+rest.map(d=>{
-        const g=GROUPS[d.g];
-        return `<li class="hrow" style="--c:${g.color}" title="${g.label}"><span class="hrow__y"><i></i>${d.y}</span><span><b>${esc(d.who)}</b> ${esc(d.t)}${d.tgt?' <span class="chip chip--tgt">Target</span>':''}</span></li>`;
-      }).join('')+'</ul>';
-    }
-    h+='</div></section>';
+/* ================= Timelines — horizontal navigation (markup is pre-rendered by the build) ================= */
+function initTimelines(){
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-tl]').forEach(tl=>{
+    const vp=tl.querySelector('.tl__viewport'), prev=tl.querySelector('[data-dir="-1"]'), next=tl.querySelector('[data-dir="1"]');
+    const prog=tl.querySelector('.tl__progress'), track=prog.querySelector('.tl__bar-track'), thumb=prog.querySelector('.tl__bar-thumb'), first=tl.querySelector('.tyear');
+    const max=()=>Math.max(vp.scrollWidth-vp.clientWidth,0);
+    const colW=()=>first.getBoundingClientRect().width;
+    const step=()=>colW()*Math.max(1,Math.floor(vp.clientWidth/colW())-1);
+    const behavior=()=>reduce?'auto':'smooth';
+    const update=()=>{
+      const m=max(), x=vp.scrollLeft, ratio=m?vp.clientWidth/vp.scrollWidth:1;
+      tl.classList.toggle('is-start',x<=2); tl.classList.toggle('is-end',x>=m-2);
+      prev.disabled=x<=2; next.disabled=x>=m-2;
+      const trackW=track.clientWidth, thumbW=Math.max(trackW*ratio,36);
+      thumb.style.width=thumbW+'px'; thumb.style.transform='translateX('+(m?(x/m)*(trackW-thumbW):0)+'px)';
+      prog.setAttribute('aria-valuenow',m?Math.round(x/m*100):100);
+    };
+    prev.addEventListener('click',()=>vp.scrollBy({left:-step(),behavior:behavior()}));
+    next.addEventListener('click',()=>vp.scrollBy({left:step(),behavior:behavior()}));
+    vp.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+    // drag / click on the progress bar to scrub the timeline
+    let dragging=false;
+    const scrub=e=>{ const r=track.getBoundingClientRect(); vp.scrollLeft=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))*max(); };
+    prog.addEventListener('pointerdown',e=>{ dragging=true; prog.setPointerCapture(e.pointerId); vp.style.scrollSnapType='none'; scrub(e); });
+    prog.addEventListener('pointermove',e=>{ if(dragging) scrub(e); });
+    const end=()=>{ dragging=false; vp.style.scrollSnapType=''; };
+    prog.addEventListener('pointerup',end); prog.addEventListener('pointercancel',end);
+    update();
   });
-  $(id).innerHTML=h;
 }
 
 /* ================= Aurora scale (one square = one truck, drawn to scale) ================= */
@@ -241,8 +225,7 @@ function renderHubs(E){
 }
 
 /* ================= boot ================= */
-renderHistory('hist-ev','ev');
-renderHistory('hist-av','av');
+initTimelines();
 renderScale();
 renderCapital();
 renderExits();

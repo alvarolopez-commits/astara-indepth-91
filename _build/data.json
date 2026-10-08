@@ -1,4 +1,45 @@
 {
+ "phases": {
+  "ev": [
+   {
+    "name": "The announcements",
+    "from": 2019,
+    "to": 2021
+   },
+   {
+    "name": "First deliveries, first failures",
+    "from": 2022,
+    "to": 2023
+   },
+   {
+    "name": "Real products",
+    "from": 2024,
+    "to": 2026
+   }
+  ],
+  "av": [
+   {
+    "name": "Pilots and experiments",
+    "from": 2019,
+    "to": 2020
+   },
+   {
+    "name": "Public-market excitement",
+    "from": 2021,
+    "to": 2021
+   },
+   {
+    "name": "Tested by reality",
+    "from": 2022,
+    "to": 2024
+   },
+   {
+    "name": "Driverless on real freight lanes",
+    "from": 2025,
+    "to": 2026
+   }
+  ]
+ },
  "ev": [
   {
    "y": 2019,

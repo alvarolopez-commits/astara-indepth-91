@@ -1,0 +1,11 @@
+# Only the page and deploy/ assets go to the website.
+*.xlsx
+*.pdf
+*.png
+*.md
+index.html
+index_91_v*.html
+_build
+deploy/camiones_reales
+.git
+.claude

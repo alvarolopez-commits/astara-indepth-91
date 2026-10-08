@@ -3,6 +3,7 @@
 !.gitignore
 !README.md
 !vercel.json
+!.vercelignore
 !index_91.html
 !deploy/
 deploy/*

@@ -1,0 +1,1275 @@
+{
+ "ev": [
+  {
+   "y": 2019,
+   "who": "Traton",
+   "t": "commits billions to e-mobility",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Nikola",
+   "t": "goes public via SPAC, opening the 2020–21 capital wave",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Mercedes-Benz Trucks",
+   "t": "unveils the eActros LongHaul: long-haul enters OEM roadmaps",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Volvo Trucks",
+   "t": "pledges to electrify its entire line-up",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Transport & Environment",
+   "t": "study: electric trucks close to cost parity with diesel",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Volta Trucks",
+   "t": "closes a €230M round, the peak of European e-truck start-up funding",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Volvo Trucks",
+   "t": "receives a record electric-truck order from Maersk",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Renault Trucks",
+   "t": "opens its heavy electric range for orders",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Tesla",
+   "t": "starts Semi deliveries, first to PepsiCo",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Nikola",
+   "t": "cuts 23% of its workforce",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Mercedes-Benz Trucks",
+   "t": "40-tonne eActros 600 drives 1,000 km with a single charging stop",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Volta Trucks",
+   "t": "files for bankruptcy after raising $390.9M",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2024,
+   "who": "Amazon",
+   "t": "puts its first electric semis into freight operations",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Nikola",
+   "t": "files for Chapter 11; peak market value was ~$26–30B in 2020",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Harbinger",
+   "t": "raises a $160M Series C co-led by FedEx",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Bollinger Motors",
+   "t": "shuts down amid financial woes",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Kenworth / Peterbilt",
+   "t": "launch new electric trucks for North America",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Tesla",
+   "t": "Semi's first truck rolls off the high-volume production line",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Tesla",
+   "t": "confirms an 822 kWh battery for the Semi",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Windrose",
+   "t": "Tesla Semi challenger reported to be missing paychecks and a truck",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Mars / Rewe",
+   "t": "deploy 47 battery-electric trucks on a shared pilot corridor",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Amazon",
+   "t": "receives its first eActros 600 trucks in Germany",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "BYD",
+   "t": "brings the ETT 44 to Europe: 600 km range, 20-minute charge",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Volvo Trucks",
+   "t": "starts production of the FH Aero Electric",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Scania",
+   "t": "announces a battery solution for 720 km of range",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "FedEx / Harbinger",
+   "t": "FedEx orders 2,000 electric trucks in a $300M deal",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  }
+ ],
+ "av": [
+  {
+   "y": 2019,
+   "who": "Daimler Truck",
+   "t": "buys a stake in Torc Robotics",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2019,
+   "who": "Starsky Robotics",
+   "t": "runs the first uncrewed truck at highway speed (55 mph)",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Starsky Robotics",
+   "t": "shuts down after failing to find a buyer or investors",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Waymo / Daimler Truck",
+   "t": "Waymo Driver is to power Daimler trucks",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Volvo / Aurora",
+   "t": "partner on autonomous transport solutions",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "TuSimple",
+   "t": "IPO raises $1.35B, peak of the AV-trucking capital cycle",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Embark",
+   "t": "announces a SPAC deal at a $5.2B valuation",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Aurora",
+   "t": "lists on Nasdaq via SPAC, ~$1.8B gross proceeds",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "TuSimple / Navistar / DHL",
+   "t": "sell 100 self-driving trucks to DHL",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "TuSimple",
+   "t": "completes its first driverless run on public roads",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Waymo Via",
+   "t": "pauses its trucking programme",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Embark",
+   "t": "sold to Applied Intuition for ~$71M, about 1% of its SPAC valuation",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Pony.ai",
+   "t": "wins its first autonomous trucking licence in Guangzhou",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "TuSimple",
+   "t": "winds down its US operations",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2024,
+   "who": "Aurora / Uber Freight",
+   "t": "sign a long-term driverless truck deal after a pilot",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2024,
+   "who": "Volvo / DHL",
+   "t": "begin autonomous truck operations",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Waabi / Volvo",
+   "t": "partner on the Volvo VNL Autonomous",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Aurora",
+   "t": "launches commercial driverless operations in Texas",
+   "g": "deploy",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Kodiak",
+   "t": "lists via SPAC",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Einride",
+   "t": "completes the world's first autonomous border crossing",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Einride",
+   "t": "announces a SPAC with Legato at a $1.8B valuation",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Gatik",
+   "t": "operates fully driverless trucks at commercial scale",
+   "g": "deploy",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Waabi",
+   "t": "raises a $750M Series C, the largest private AV-truck round in the set",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "PlusAI",
+   "t": "SPAC business combination terminated",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "California DMV",
+   "t": "finalises rules opening the state to heavy-duty autonomous trucks",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Aurora",
+   "t": "selected by a leading carrier to scale to 500 trucks",
+   "g": "deploy",
+   "key": false,
+   "tgt": true
+  },
+  {
+   "y": 2026,
+   "who": "Volvo",
+   "t": "targets a $3B autonomous business within five years",
+   "g": "capital",
+   "key": false,
+   "tgt": true
+  },
+  {
+   "y": 2026,
+   "who": "Einride / Lidl",
+   "t": "launch the first cab-less truck on a German public road",
+   "g": "deploy",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Pony.ai / GAC",
+   "t": "unveil the Gen-4 robotruck, with European sales targeted",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Aurora",
+   "t": "targets 30,000 driverless trucks by 2030, from about 20 today",
+   "g": "capital",
+   "key": true,
+   "tgt": true
+  },
+  {
+   "y": 2026,
+   "who": "Kodiak",
+   "t": "picks Dallas–Houston for its driverless long-haul launch",
+   "g": "deploy",
+   "key": false,
+   "tgt": true
+  }
+ ],
+ "exits": [
+  {
+   "y": 2020,
+   "co": "Starsky Robotics",
+   "seg": "AV",
+   "region": "US",
+   "out": "Shut down",
+   "ctx": "No buyer / investors"
+  },
+  {
+   "y": 2023,
+   "co": "Embark",
+   "seg": "AV",
+   "region": "US",
+   "out": "Collapse / sold",
+   "ctx": "USD 5.2B SPAC valuation (2021) -> acquired by Applied Intuition for ~USD 71M (Aug 2023)"
+  },
+  {
+   "y": 2023,
+   "co": "Waymo Via (trucking)",
+   "seg": "AV",
+   "region": "US",
+   "out": "Program paused",
+   "ctx": "Trucking arm practically shut down July 2023; robotaxi continues"
+  },
+  {
+   "y": 2023,
+   "co": "Volta Trucks",
+   "seg": "EV",
+   "region": "Europe (Sweden)",
+   "out": "Bankruptcy",
+   "ctx": "USD 390.9M raised in total; assets bought by Luxor Capital (largest creditor)"
+  },
+  {
+   "y": 2023,
+   "co": "TuSimple",
+   "seg": "AV",
+   "region": "US",
+   "out": "Exit from US",
+   "ctx": "IPO USD 1.35B (Apr 2021) -> US wind-down Dec 2023"
+  },
+  {
+   "y": 2025,
+   "co": "Nikola",
+   "seg": "EV",
+   "region": "US",
+   "out": "Chapter 11",
+   "ctx": "Peak market value ~USD 26-30B (2020); ~USD 47M cash at filing"
+  },
+  {
+   "y": 2025,
+   "co": "Bollinger Motors",
+   "seg": "EV",
+   "region": "US",
+   "out": "Shut down",
+   "ctx": "Financial woes (commercial EV truck pivot)"
+  },
+  {
+   "y": 2026,
+   "co": "Unnamed e-truck start-up",
+   "seg": "EV",
+   "region": "n/a",
+   "out": "Liquidation",
+   "ctx": "Funding drought (company not named in the entry title)"
+  },
+  {
+   "y": 2026,
+   "co": "PlusAI SPAC (Churchill Capital IX)",
+   "seg": "AV",
+   "region": "US",
+   "out": "Deal terminated",
+   "ctx": "Business combination terminated; company continues"
+  },
+  {
+   "y": 2026,
+   "co": "Windrose",
+   "seg": "EV",
+   "region": "US / China",
+   "out": "Distress (reported)",
+   "ctx": "WSJ: missing paychecks and a truck; company had raised USD 110M Series B (Apr 2024)"
+  }
+ ],
+ "funding": {
+  "years": [
+   {
+    "y": 2021,
+    "avPub": 3764,
+    "avVen": 200,
+    "evVen": 55,
+    "total": 4019
+   },
+   {
+    "y": 2022,
+    "avPub": 0,
+    "avVen": 188,
+    "evVen": 260.8,
+    "total": 448.8
+   },
+   {
+    "y": 2023,
+    "avPub": 0,
+    "avVen": 0,
+    "evVen": 0,
+    "total": 0
+   },
+   {
+    "y": 2024,
+    "avPub": 483,
+    "avVen": 200,
+    "evVen": 110,
+    "total": 793
+   },
+   {
+    "y": 2025,
+    "avPub": 212.5,
+    "avVen": 100,
+    "evVen": 335.5,
+    "total": 648
+   },
+   {
+    "y": 2026,
+    "avPub": 100,
+    "avVen": 1193,
+    "evVen": 532.9,
+    "total": 1825.9
+   }
+  ],
+  "totalAV": 6440.5,
+  "totalEV": 1294.2,
+  "total": 7734.700000000001
+ },
+ "map": [
+  {
+   "region": "Europe",
+   "EV": 9,
+   "AV": 1,
+   "BOTH": 2,
+   "names": {
+    "EV": [
+     "18 Wheels",
+     "Designwerk",
+     "Ebusco",
+     "Gaussin",
+     "Herko Trucks",
+     "Tevva Motors",
+     "Torsus",
+     "Daimler Truck / Mercedes-Benz Trucks",
+     "MAN / Traton",
+     "Volvo Group",
+     "Scania"
+    ],
+    "AV": [
+     "Einride",
+     "Daimler Truck / Mercedes-Benz Trucks",
+     "Volvo Group"
+    ]
+   }
+  },
+  {
+   "region": "United States",
+   "EV": 18,
+   "AV": 11,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "Battle Aproved Vehicles",
+     "Battle motors",
+     "Bolinger Motors",
+     "BrightDrop",
+     "Electron transport",
+     "Hyliion",
+     "Lordstown motors",
+     "Meritor",
+     "Motiv Power Systems",
+     "Nikola Motor",
+     "Revoy",
+     "SEA Electric",
+     "Superlight",
+     "Trova Commercial Vehicles",
+     "Voltu",
+     "Workhorse",
+     "XOS trucks",
+     "Tesla"
+    ],
+    "AV": [
+     "Embark Trucks",
+     "Gatik AI",
+     "Humble Robotics",
+     "Kodiak Robotics",
+     "Locomation",
+     "Plus",
+     "Starsky Robotics",
+     "Torc Robotics",
+     "TuSImple",
+     "Waabi",
+     "Aurora"
+    ]
+   }
+  },
+  {
+   "region": "China",
+   "EV": 7,
+   "AV": 5,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "DAMO Truck",
+     "Deepway",
+     "Farizon Auto",
+     "Jinbei",
+     "Sany heavy truck",
+     "Zeron Truck",
+     "BYD"
+    ],
+    "AV": [
+     "Inceptio",
+     "Sinian zhijia",
+     "TrunkTech",
+     "Yikong Zhijia",
+     "Pony.ai"
+    ]
+   }
+  },
+  {
+   "region": "India",
+   "EV": 4,
+   "AV": 0,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "Delta X Automotive",
+     "EVage",
+     "Etrio",
+     "Euler motors"
+    ],
+    "AV": []
+   }
+  },
+  {
+   "region": "Canada",
+   "EV": 2,
+   "AV": 0,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "Edison Motors",
+     "Lion Electric"
+    ],
+    "AV": []
+   }
+  },
+  {
+   "region": "Japan & Korea",
+   "EV": 0,
+   "AV": 2,
+   "BOTH": 0,
+   "names": {
+    "EV": [],
+    "AV": [
+     "Rideflux",
+     "Robotruck"
+    ]
+   }
+  }
+ ],
+ "alli": {
+  "nodes": [
+   {
+    "id": "Volvo",
+    "type": "oem",
+    "deg": 5,
+    "both": true
+   },
+   {
+    "id": "Aurora",
+    "type": "dev",
+    "deg": 8,
+    "both": false
+   },
+   {
+    "id": "Paccar",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Uber Freight",
+    "type": "cust",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Nvidia",
+    "type": "tech",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Continental",
+    "type": "tech",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "FedEx",
+    "type": "cust",
+    "deg": 2,
+    "both": true
+   },
+   {
+    "id": "Werner",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "McLeod Software",
+    "type": "tech",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Daimler Truck",
+    "type": "oem",
+    "deg": 3,
+    "both": true
+   },
+   {
+    "id": "Torc",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Waymo",
+    "type": "dev",
+    "deg": 3,
+    "both": false
+   },
+   {
+    "id": "J.B. Hunt",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "UPS",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Waabi",
+    "type": "dev",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "DHL",
+    "type": "cust",
+    "deg": 3,
+    "both": true
+   },
+   {
+    "id": "Kodiak",
+    "type": "dev",
+    "deg": 3,
+    "both": false
+   },
+   {
+    "id": "IKEA",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "U.S. Xpress",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Atlas Energy",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Gatik",
+    "type": "dev",
+    "deg": 6,
+    "both": false
+   },
+   {
+    "id": "Walmart",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Kroger",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Loblaw",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "PepsiCo",
+    "type": "cust",
+    "deg": 2,
+    "both": true
+   },
+   {
+    "id": "Isuzu",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "TuSimple",
+    "type": "dev",
+    "deg": 4,
+    "both": false
+   },
+   {
+    "id": "Navistar",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Union Pacific",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Traton",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Embark",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Knight-Swift",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Einride",
+    "type": "dev",
+    "deg": 6,
+    "both": true
+   },
+   {
+    "id": "Lidl",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "PostNord",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Plus",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "International Motors",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Pony.ai",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "GAC",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Rideflux",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Tata Daewoo",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "YMX Logistics",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Outrider",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Maersk",
+    "type": "cust",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "BYD",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Amazon",
+    "type": "cust",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Mars",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Holcim",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Tesla",
+    "type": "oem",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Harbinger",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Chery Heavy Trucks",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Gotion",
+    "type": "tech",
+    "deg": 1,
+    "both": false
+   }
+  ],
+  "links": [
+   {
+    "source": "Volvo",
+    "target": "Aurora",
+    "seg": "AV"
+   },
+   {
+    "source": "Paccar",
+    "target": "Aurora",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Uber Freight",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Nvidia",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Continental",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "FedEx",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Werner",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "McLeod Software",
+    "seg": "AV"
+   },
+   {
+    "source": "Daimler Truck",
+    "target": "Torc",
+    "seg": "AV"
+   },
+   {
+    "source": "Daimler Truck",
+    "target": "Waymo",
+    "seg": "AV"
+   },
+   {
+    "source": "Waymo",
+    "target": "J.B. Hunt",
+    "seg": "AV"
+   },
+   {
+    "source": "Waymo",
+    "target": "UPS",
+    "seg": "AV"
+   },
+   {
+    "source": "Waabi",
+    "target": "Volvo",
+    "seg": "AV"
+   },
+   {
+    "source": "Waabi",
+    "target": "Uber Freight",
+    "seg": "AV"
+   },
+   {
+    "source": "Volvo",
+    "target": "DHL",
+    "seg": "BOTH"
+   },
+   {
+    "source": "Kodiak",
+    "target": "IKEA",
+    "seg": "AV"
+   },
+   {
+    "source": "Kodiak",
+    "target": "U.S. Xpress",
+    "seg": "AV"
+   },
+   {
+    "source": "Kodiak",
+    "target": "Atlas Energy",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Walmart",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Kroger",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Loblaw",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "PepsiCo",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Nvidia",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Isuzu",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "Navistar",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "DHL",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "Union Pacific",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "Traton",
+    "seg": "AV"
+   },
+   {
+    "source": "Embark",
+    "target": "Knight-Swift",
+    "seg": "AV"
+   },
+   {
+    "source": "Einride",
+    "target": "Lidl",
+    "seg": "AV"
+   },
+   {
+    "source": "Einride",
+    "target": "PostNord",
+    "seg": "AV"
+   },
+   {
+    "source": "Plus",
+    "target": "International Motors",
+    "seg": "AV"
+   },
+   {
+    "source": "Pony.ai",
+    "target": "GAC",
+    "seg": "AV"
+   },
+   {
+    "source": "Rideflux",
+    "target": "Tata Daewoo",
+    "seg": "AV"
+   },
+   {
+    "source": "YMX Logistics",
+    "target": "Outrider",
+    "seg": "AV"
+   },
+   {
+    "source": "Einride",
+    "target": "Maersk",
+    "seg": "EV"
+   },
+   {
+    "source": "Einride",
+    "target": "BYD",
+    "seg": "EV"
+   },
+   {
+    "source": "Einride",
+    "target": "Amazon",
+    "seg": "EV"
+   },
+   {
+    "source": "Einride",
+    "target": "Mars",
+    "seg": "EV"
+   },
+   {
+    "source": "Volvo",
+    "target": "Maersk",
+    "seg": "EV"
+   },
+   {
+    "source": "Volvo",
+    "target": "Holcim",
+    "seg": "EV"
+   },
+   {
+    "source": "Daimler Truck",
+    "target": "Amazon",
+    "seg": "EV"
+   },
+   {
+    "source": "Tesla",
+    "target": "PepsiCo",
+    "seg": "EV"
+   },
+   {
+    "source": "Tesla",
+    "target": "DHL",
+    "seg": "EV"
+   },
+   {
+    "source": "Harbinger",
+    "target": "FedEx",
+    "seg": "EV"
+   },
+   {
+    "source": "Chery Heavy Trucks",
+    "target": "Gotion",
+    "seg": "EV"
+   }
+  ]
+ }
+}

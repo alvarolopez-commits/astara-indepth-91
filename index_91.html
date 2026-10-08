@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Revolutions, One Truck — Astara Intelligence In Depth #91</title>
+<meta name="description" content="The electrification and autonomy of heavy freight, 2019–2026. Astara Intelligence In Depth #91.">
+<meta name="theme-color" content="#221E41">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="deploy/img/hero-1672.webp" imagesrcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w" imagesizes="(min-width:900px) 76vw, 100vw">
+<style>
+/* =====================================================================
+   ASTARA INTELLIGENCE · IN DEPTH #91 — single, self-contained stylesheet
+   1 tokens · 2 base · 3 cover · 4 chapters & reading · 5 images · 6 figures
+   7 chapter components · 8 responsive · 9 motion
+   ===================================================================== */
+
+/* ---------- 1. TOKENS ---------- */
+:root{
+  /* palette — seven base colours; surfaces are tints/alphas of these */
+  --bg:#221E41;            /* main purple */
+  --blue-deep:#1A4D7A;     /* deep blue, used selectively */
+  --accent:#8BCDFF;        /* protagonist */
+  --txt:#FFFFFF;           /* headings, strong */
+  --txt-body:#F2F4F6;      /* running text */
+  --txt-sec:#DCE5ED;       /* secondary text, separators */
+  --line-muted:#5A7A94;    /* strokes and graphic marks only (3.0:1 on cards) */
+  --txt-muted:#89A1B4;     /* small labels: #5A7A94 lightened to >=4.6:1 on every surface */
+  --bg-alt:#20274C;        /* alternate sections: #1A4D7A 20% over #221E41 */
+  --bg-card:#292A4E;       /* cards: #8BCDFF 7% over #221E41 */
+  --bg-nest:#252347;       /* panels nested inside cards */
+  --track:#221E41;         /* bar tracks */
+  --ink:#221E41;           /* dark text on light fills */
+  --border:rgba(220,229,237,.14);
+
+  /* category colours — charts, legends and chips only */
+  --col-ev:#3EC6C6;--col-av:#8BCDFF;--col-cap:#B79CFF;--col-fail:#FF8F9C;--col-ship:#FFB935;
+  --hatch-ev:repeating-linear-gradient(135deg,rgba(62,198,198,.55) 0 3px,transparent 3px 7px);
+  --hatch-av:repeating-linear-gradient(135deg,rgba(139,205,255,.55) 0 3px,transparent 3px 7px);
+
+  /* type */
+  --font-d:"Orbitron",sans-serif;
+  --font-b:"Montserrat",system-ui,sans-serif;
+  --fs-display:clamp(36px,6.2vw,74px);
+  --fs-h1:clamp(28px,4.6vw,54px);
+  --fs-h2:clamp(20px,2.4vw,27px);
+  --fs-h3:clamp(17px,1.9vw,20px);
+  --fs-lead:clamp(17.5px,2vw,21px);
+  --fs-body:15.5px;
+  --fs-card:14.5px;
+  --fs-small:13.5px;
+  --fs-caption:13px;
+  --fs-label:11px;
+  --fs-kpi-xl:clamp(46px,6.4vw,74px);
+  --fs-kpi-l:clamp(28px,3.6vw,40px);
+  --fs-kpi-m:clamp(21px,2.4vw,27px);
+  --fs-kpi-s:clamp(16.5px,1.8vw,19.5px);
+  --ls-label:.14em;
+
+  /* space (8-pt rhythm) */
+  --g:16px;                /* page gutter */
+  --sp-1:8px;--sp-2:12px;--sp-3:16px;--sp-4:24px;--sp-5:32px;--sp-6:48px;--sp-7:64px;--sp-8:96px;
+  --wide:1240px;--read:720px;
+  --r-card:16px;--r-sm:10px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+@media(min-width:480px){:root{--g:24px;}}
+@media(min-width:768px){:root{--g:40px;--fs-body:16.5px;--fs-card:15px;}}
+
+/* ---------- 2. BASE ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--bg);color:var(--txt-body);font-family:var(--font-b);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{color:var(--accent);}
+a:hover{color:#B3DDFF;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.num{font-variant-numeric:lining-nums tabular-nums;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.section-divider{height:1px;background:var(--border);max-width:1100px;margin:0 auto;}
+.wide{max-width:var(--wide);margin-left:auto;margin-right:auto;}
+.reading{max-width:var(--read);}
+
+/* ---------- 3. COVER ---------- */
+.cover{position:relative;background:var(--bg);overflow:hidden;}
+.cover__topbar{position:relative;z-index:3;display:flex;align-items:center;gap:12px;flex-wrap:wrap;row-gap:8px;max-width:var(--wide);margin:0 auto;padding:var(--g) var(--g) 0;}
+.cover__divider{width:1px;height:16px;background:rgba(220,229,237,.3);flex:none;}
+.cover__label{font-family:var(--font-b);font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;}
+.cover__inner{position:relative;z-index:2;display:grid;max-width:var(--wide);margin:0 auto;}
+.cover__photo{position:relative;grid-area:1/1;justify-self:end;width:100%;margin:0;}
+.cover__photo img{width:100%;aspect-ratio:16/9;object-fit:cover;}
+.cover__photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(34,30,65,0) 55%,var(--bg) 100%);}
+.cover__content{position:relative;z-index:2;grid-area:2/1;padding:0 var(--g) var(--sp-6);margin-top:calc(-1*clamp(48px,12vw,110px));}
+.cover__pill{display:inline-flex;border:1px solid rgba(220,229,237,.28);border-radius:20px;padding:6px 14px;margin-bottom:var(--sp-4);}
+.cover__pill span{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:2px;color:var(--txt-sec);text-transform:uppercase;}
+.cover__title{font-family:var(--font-d);font-size:var(--fs-display);font-weight:700;line-height:1.02;letter-spacing:-.01em;color:var(--txt);text-transform:uppercase;margin-bottom:var(--sp-4);}
+.cover__title span{color:var(--accent);}
+.cover__sub{font-size:clamp(16px,1.7vw,19px);font-weight:500;line-height:1.55;color:var(--txt);max-width:500px;}
+.cover__meta{margin-top:var(--sp-5);display:flex;gap:var(--sp-4);flex-wrap:wrap;align-items:center;}
+.cover__date{font-family:var(--font-b);font-size:12px;font-weight:600;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
+.cover__tag{font-family:var(--font-b);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--ink);background:var(--accent);padding:5px 11px;border-radius:4px;text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
+@media(min-width:900px){
+  .cover__inner{min-height:min(80vh,640px);}
+  .cover__photo{grid-area:1/1;width:76%;align-self:end;}
+  .cover__photo::after{background:
+    linear-gradient(90deg,var(--bg) 0%,rgba(34,30,65,.55) 22%,rgba(34,30,65,0) 46%),
+    linear-gradient(180deg,var(--bg) 0%,rgba(34,30,65,0) 24%),
+    linear-gradient(0deg,var(--bg) 0%,rgba(34,30,65,0) 12%);}
+  .cover__content{grid-area:1/1;align-self:center;margin-top:0;padding:var(--sp-6) var(--g);max-width:56%;}
+}
+
+/* ---------- 4. CHAPTERS & READING ---------- */
+.sec{padding:var(--sp-7) var(--g);}
+.sec--alt{background:var(--bg-alt);}
+@media(min-width:768px){.sec{padding:var(--sp-8) var(--g);}}
+.chapter-head{margin-bottom:var(--sp-6);}
+.chapter-label{display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-4);}
+.chapter-num{font-family:var(--font-b);font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);padding:3px 9px;border-radius:3px;font-variant-numeric:lining-nums tabular-nums;}
+.chapter-label-text{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:.28em;color:var(--txt-muted);text-transform:uppercase;}
+.chapter-title{font-family:var(--font-d);font-size:var(--fs-h1);font-weight:700;line-height:1.06;letter-spacing:-.01em;color:var(--txt);text-transform:uppercase;max-width:900px;}
+.chapter-title span{color:var(--accent);}
+
+.body-text{font-size:var(--fs-body);line-height:1.8;font-weight:400;color:var(--txt-body);margin-bottom:var(--sp-4);}
+.reading .body-text:last-child{margin-bottom:0;}
+.lead-para{font-size:var(--fs-lead);font-weight:500;line-height:1.65;color:var(--txt);margin-bottom:var(--sp-5);}
+.gap-top{margin-top:var(--sp-6);}
+
+.excerpt{margin:var(--sp-6) 0 0;max-width:760px;}
+.excerpt p{font-size:clamp(21px,2.8vw,30px);font-weight:500;line-height:1.38;letter-spacing:-.005em;color:var(--accent);}
+.excerpt cite{display:block;font-style:normal;font-size:var(--fs-label);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-muted);margin-top:var(--sp-2);font-family:var(--font-d);}
+.statement{margin:var(--sp-6) 0 0;padding-top:var(--sp-5);border-top:1px solid var(--border);max-width:900px;}
+.statement p{font-size:clamp(22px,3vw,34px);font-weight:600;line-height:1.32;letter-spacing:-.015em;color:var(--txt);}
+.statement p em{font-style:normal;color:var(--accent);}
+
+/* ---------- 5. IMAGES ---------- */
+.band{margin:var(--sp-6) 0 0;}
+.band img,.split__img img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;background:var(--bg-card);}
+.split{display:grid;gap:var(--sp-5);margin-top:var(--sp-6);align-items:center;}
+@media(min-width:960px){.split{grid-template-columns:5fr 7fr;gap:var(--sp-7);}}
+.split__text .body-text{margin-bottom:0;}
+.split__img{margin:0;}
+
+/* ---------- 6. FIGURES ---------- */
+.fig{margin:var(--sp-6) 0 0;}
+.fig__frame{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-card);padding:var(--sp-4) var(--sp-3) var(--sp-4);}
+@media(min-width:768px){.fig__frame{padding:var(--sp-5) var(--sp-5) var(--sp-5);}}
+.fig__kicker{font-family:var(--font-b);font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);font-variant-numeric:lining-nums tabular-nums;}
+.fig__title{font-size:var(--fs-h2);font-weight:700;line-height:1.25;letter-spacing:-.01em;color:var(--txt);margin-top:var(--sp-1);max-width:820px;}
+.fig__dek{font-size:var(--fs-small);line-height:1.6;color:var(--txt-sec);margin-top:var(--sp-2);max-width:760px;}
+.fig figcaption{font-size:var(--fs-caption);line-height:1.65;color:var(--txt-muted);margin-top:var(--sp-3);max-width:820px;}
+.fig figcaption b{color:var(--txt-sec);font-weight:600;}
+.key-legend{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-4);margin-top:var(--sp-4);}
+.key-legend span{display:inline-flex;align-items:center;gap:var(--sp-1);font-size:12px;font-weight:500;color:var(--txt-muted);}
+.key-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;}
+.key-legend i.sq{border-radius:2px;width:14px;height:10px;}
+.key-legend i.hatch-ev{background:var(--hatch-ev);border:1px dashed var(--col-ev);}
+.key-legend i.ring{background:transparent;border:2px solid var(--col-cap);}
+.chip{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;white-space:nowrap;font-family:var(--font-b);}
+.chip--act{background:rgba(139,205,255,.16);color:var(--col-av);}
+.chip--tgt{border:1px dashed var(--txt-muted);color:var(--txt-sec);}
+.chip--ev{background:rgba(62,198,198,.15);color:var(--col-ev);}
+.chip--av{background:rgba(139,205,255,.15);color:var(--col-av);}
+.chip--kind{background:rgba(220,229,237,.1);color:var(--txt-sec);}
+
+/* ---------- 7. CHAPTER COMPONENTS ---------- */
+/* ch01 — two pathways */
+.pathways{display:grid;gap:var(--sp-4);}
+@media(min-width:820px){.pathways{grid-template-columns:1fr 1fr;gap:var(--sp-5);}}
+.path{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-card);padding:var(--sp-5) var(--sp-4);}
+@media(min-width:820px){.path{padding:var(--sp-6) var(--sp-5);}}
+.path__tag{font-family:var(--font-b);font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);}
+.path__head{font-size:clamp(19px,2.2vw,24px);font-weight:700;line-height:1.3;color:var(--txt);margin:var(--sp-2) 0 var(--sp-5);letter-spacing:-.01em;}
+.kpi{font-size:var(--fs-kpi-xl);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--accent);font-variant-numeric:lining-nums tabular-nums;}
+.kpi-lab{font-size:var(--fs-small);line-height:1.5;color:var(--txt-muted);margin-top:var(--sp-2);max-width:340px;}
+.hbars{margin-top:var(--sp-5);display:grid;gap:var(--sp-3);}
+.hbar__lab{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-2);font-size:var(--fs-small);color:var(--txt-sec);margin-bottom:6px;}
+.hbar__lab b{color:var(--txt);font-weight:700;}
+.hbar__lab small{font-size:12px;font-weight:600;color:var(--txt-muted);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;}
+.hbar__track{height:10px;background:var(--track);border-radius:5px;overflow:hidden;}
+.hbar__fill{height:100%;border-radius:5px;background:var(--col-ev);}
+.hbar__fill--fc{background:var(--hatch-ev);border:1px dashed var(--col-ev);}
+.path__foot{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--border);font-size:var(--fs-small);line-height:1.6;color:var(--txt-sec);}
+.path__foot b{color:var(--txt);font-size:16px;}
+.ladder{display:grid;grid-template-columns:116px 1fr;gap:var(--sp-3) var(--sp-3);margin-top:var(--sp-5);align-items:center;}
+.ladder__v{font-size:var(--fs-kpi-m);font-weight:700;letter-spacing:-.02em;color:var(--txt);text-align:right;font-variant-numeric:lining-nums tabular-nums;}
+.ladder__v--act{color:var(--accent);}
+.ladder__t{font-size:var(--fs-small);line-height:1.4;color:var(--txt-muted);display:flex;gap:var(--sp-1);align-items:center;flex-wrap:wrap;}
+
+/* ch02/03 — phased history */
+.hist{margin-top:var(--sp-5);}
+.hphase{display:grid;gap:var(--sp-4);padding:var(--sp-6) 0;border-top:1px solid var(--border);}
+.hphase:first-of-type{border-top:none;padding-top:var(--sp-4);}
+.hphase__num{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
+.hphase__name{font-size:var(--fs-h2);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--txt);margin-top:var(--sp-1);}
+.hphase__yrs{font-size:15px;font-weight:700;color:var(--accent);margin-top:var(--sp-1);font-variant-numeric:lining-nums tabular-nums;}
+.hphase__dek{font-size:var(--fs-small);line-height:1.55;color:var(--txt-muted);margin-top:var(--sp-2);max-width:240px;}
+.hlabel{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-muted);margin-bottom:var(--sp-3);}
+.hlabel--sub{margin-top:var(--sp-5);}
+.hkeys{display:grid;gap:var(--sp-3);}
+@media(min-width:640px){.hkeys{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.hcard{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:var(--sp-4);}
+.hcard--tgt{border-style:dashed;border-color:rgba(220,229,237,.4);background:transparent;}
+.hcard__top{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap;}
+.hcard__y{font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--accent);font-variant-numeric:lining-nums tabular-nums;}
+.hcard__cat{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--txt-muted);}
+.hcard__cat i{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none;}
+.hcard__co{font-size:var(--fs-h3);font-weight:700;line-height:1.25;color:var(--txt);margin-top:var(--sp-2);}
+.hcard__t{font-size:var(--fs-card);line-height:1.55;color:var(--txt-sec);margin-top:6px;}
+.hlist{list-style:none;}
+.hlist li{break-inside:avoid;margin-bottom:var(--sp-3);}
+@media(min-width:1100px){.hlist{column-count:2;column-gap:var(--sp-5);}}
+.hrow{display:grid;grid-template-columns:44px 1fr;gap:var(--sp-2);align-items:start;font-size:var(--fs-small);line-height:1.55;color:var(--txt-muted);}
+.hrow__y{font-size:14px;font-weight:700;color:var(--txt-sec);font-variant-numeric:lining-nums tabular-nums;display:flex;align-items:center;gap:6px;}
+.hrow__y i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none;}
+.hrow b{color:var(--txt);font-weight:700;}
+@media(min-width:960px){
+  .hphase{grid-template-columns:240px minmax(0,1fr);gap:var(--sp-6);}
+  .hphase__head{position:sticky;top:var(--sp-5);align-self:start;}
+}
+
+/* ch02 — price duel */
+.duel{display:grid;gap:var(--sp-3);margin-top:var(--sp-5);}
+.duel__row{display:grid;gap:6px;}
+@media(min-width:640px){.duel__row{grid-template-columns:190px 1fr;align-items:center;gap:var(--sp-3);}}
+.duel__lab{font-size:var(--fs-small);color:var(--txt-sec);line-height:1.35;}
+.duel__lab b{display:block;color:var(--txt);font-size:15px;}
+.duel__bar{height:40px;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding:0 var(--sp-3);font-size:var(--fs-kpi-s);font-weight:700;color:var(--ink);font-variant-numeric:lining-nums tabular-nums;}
+.duel__gap{font-size:var(--fs-small);color:var(--txt-sec);margin-top:var(--sp-3);}
+.duel__gap b{color:var(--txt);}
+
+/* ch03 — Aurora scale */
+.scale{display:grid;gap:var(--sp-5);margin-top:var(--sp-5);align-items:start;}
+@media(min-width:900px){.scale{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--sp-7);}}
+.scale svg{width:100%;height:auto;display:block;}
+.scale__notes{display:grid;gap:var(--sp-5);}
+.snote{display:grid;grid-template-columns:22px 1fr;gap:var(--sp-3);align-items:start;}
+.snote__sw{width:18px;height:18px;border-radius:3px;margin-top:6px;}
+.snote__v{font-size:var(--fs-kpi-m);font-weight:700;letter-spacing:-.02em;line-height:1.05;color:var(--txt);font-variant-numeric:lining-nums tabular-nums;}
+.snote__t{font-size:var(--fs-small);color:var(--txt-muted);line-height:1.5;margin-top:6px;}
+.scale__ratio{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);padding-top:var(--sp-4);border-top:1px solid var(--border);}
+.scale__ratio b{display:block;font-size:var(--fs-kpi-l);letter-spacing:-.02em;color:var(--accent);margin-top:var(--sp-1);text-transform:none;font-variant-numeric:lining-nums tabular-nums;}
+
+/* ch04 — capital */
+.split-bar{margin-top:var(--sp-5);}
+.split-bar__total{font-size:var(--fs-small);color:var(--txt-sec);margin-bottom:var(--sp-2);}
+.split-bar__total b{color:var(--txt);font-size:17px;}
+.split-bar__bar{display:flex;height:58px;border-radius:8px;overflow:hidden;}
+.split-bar__seg{display:flex;flex-direction:column;justify-content:center;padding:0 var(--sp-3);color:var(--ink);min-width:0;}
+.split-bar__seg b{font-size:var(--fs-kpi-m);font-weight:700;letter-spacing:-.02em;line-height:1;font-variant-numeric:lining-nums tabular-nums;}
+.split-bar__seg small{font-size:11px;font-weight:700;letter-spacing:.04em;margin-top:4px;white-space:nowrap;}
+.split-bar__seg--ev{padding:0 var(--sp-1);}
+.split-bar__seg--ev small{display:none;}
+@media(min-width:600px){.split-bar__seg--ev small{display:block;}}
+.ybars{position:relative;margin-top:var(--sp-6);}
+.ybars__plot{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(8px,2vw,24px);height:310px;align-items:end;border-bottom:1px solid var(--border);position:relative;}
+.ybar{display:flex;flex-direction:column;justify-content:flex-end;height:100%;}
+.ybar__stack{display:flex;flex-direction:column-reverse;border-radius:4px 4px 0 0;overflow:hidden;transform-origin:bottom;}
+.ybar__seg{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:var(--ink);overflow:hidden;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;}
+.ybar__tot{text-align:center;font-weight:700;font-size:var(--fs-kpi-s);letter-spacing:-.01em;color:var(--txt);margin-bottom:6px;font-variant-numeric:lining-nums tabular-nums;}
+.ybar__tot--hi{color:var(--accent);font-size:clamp(20px,2.4vw,26px);}
+.ybar__none{font-size:12px;color:var(--txt-muted);text-align:center;line-height:1.35;margin-bottom:var(--sp-1);}
+.ybars__x{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(8px,2vw,24px);margin-top:var(--sp-1);}
+.ybars__x span{text-align:center;font-size:13px;font-weight:700;color:var(--txt-sec);font-variant-numeric:lining-nums tabular-nums;}
+.ybars__x span.hi{color:var(--accent);}
+.ybars__note{position:absolute;left:calc(100%/6 + 12px);top:0;max-width:min(330px,60%);font-size:var(--fs-small);line-height:1.5;color:var(--txt-sec);border-left:2px solid var(--col-av);padding-left:var(--sp-2);}
+.ybars__note b{color:var(--txt);}
+.ybars__sum{margin-top:var(--sp-3);margin-left:calc(100%/6 + clamp(8px,2vw,24px)/6);padding-top:var(--sp-1);border-top:1px solid var(--line-muted);font-size:var(--fs-small);color:var(--txt-sec);}
+.ybars__sum b{color:var(--txt);}
+
+.ao{margin-top:var(--sp-5);}
+.ao__row{display:grid;gap:var(--sp-2) var(--sp-4);padding:var(--sp-4) 0;border-top:1px solid var(--border);}
+.ao__row:first-child{border-top:none;}
+@media(min-width:760px){.ao__row{grid-template-columns:150px minmax(0,1fr) 28px minmax(0,1fr);align-items:center;}}
+.ao__co{font-size:17px;font-weight:700;color:var(--txt);}
+.ao__co small{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;font-size:11px;color:var(--txt-muted);font-weight:600;align-items:center;}
+.ao__kind{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-muted);}
+.ao__amb b{display:block;font-size:var(--fs-kpi-l);font-weight:700;letter-spacing:-.02em;line-height:1.1;color:var(--accent);margin-top:4px;font-variant-numeric:lining-nums tabular-nums;}
+.ao__arrow{display:none;color:var(--txt-muted);font-size:20px;text-align:center;}
+@media(min-width:760px){.ao__arrow{display:block;}}
+.ao__out .st{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-bottom:6px;}
+.st--closed{background:rgba(255,143,156,.14);color:var(--col-fail);}
+.st--other{background:rgba(220,229,237,.12);color:var(--txt-sec);}
+.ao__out b{display:block;font-size:var(--fs-kpi-s);font-weight:700;line-height:1.2;color:var(--txt);}
+.ao__note{font-size:var(--fs-small);color:var(--txt-muted);line-height:1.5;margin-top:4px;}
+.contrast{margin-top:var(--sp-2);display:grid;gap:4px;max-width:420px;}
+.contrast div{height:8px;border-radius:4px;}
+.ao-minor{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--border);}
+.ao-minor ul{list-style:none;display:grid;gap:var(--sp-2);margin-top:var(--sp-3);}
+.ao-minor li{font-size:var(--fs-small);line-height:1.55;color:var(--txt-muted);display:grid;grid-template-columns:1fr;gap:2px;}
+@media(min-width:760px){.ao-minor li{grid-template-columns:230px 1fr;gap:var(--sp-3);}}
+.ao-minor li b{color:var(--txt);font-weight:700;}
+.ao-minor li span b{color:var(--txt-sec);font-weight:600;}
+
+/* ch05 — regions & map */
+.regions{display:grid;gap:var(--sp-7);}
+.region{display:flex;flex-direction:column;gap:var(--sp-4);}
+@media(min-width:1080px){.regions{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--sp-5);}
+  @supports (grid-template-rows:subgrid){.region{display:grid;grid-row:span 3;grid-template-rows:subgrid;}}}
+.region__tag{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-sec);}
+.region__model{font-size:var(--fs-h2);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--txt);margin-top:var(--sp-1);}
+.rviz{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-card);padding:var(--sp-4);}
+
+.rviz__big{font-size:var(--fs-kpi-xl);font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--accent);font-variant-numeric:lining-nums tabular-nums;}
+.rviz__big small{display:block;font-size:var(--fs-small);color:var(--txt-muted);font-weight:500;margin-top:var(--sp-2);line-height:1.5;letter-spacing:0;}
+.meter{margin-top:var(--sp-5);}
+.meter__track{position:relative;height:14px;background:var(--track);border-radius:7px;}
+.meter__fill{position:absolute;left:0;top:0;bottom:0;border-radius:7px;background:var(--col-ev);}
+.meter__tgt{position:absolute;top:-6px;bottom:-6px;border-left:2px dashed var(--txt);}
+.meter__labs{position:relative;height:42px;margin-top:var(--sp-2);font-size:12px;color:var(--txt-sec);}
+.meter__labs span{position:absolute;top:0;white-space:nowrap;line-height:1.35;}
+.meter__labs .l{transform:translateX(-100%);text-align:right;padding-right:8px;}
+.meter__labs .r{text-align:left;padding-left:8px;}
+.meter__labs span b{color:var(--txt);display:block;font-size:15px;font-weight:700;font-variant-numeric:lining-nums tabular-nums;}
+.stairs-h{font-size:var(--fs-small);color:var(--txt-sec);font-weight:600;display:flex;align-items:center;gap:var(--sp-2);}
+.stairs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);align-items:end;height:140px;margin-top:var(--sp-3);}
+.stairs div{border:1px dashed var(--col-av);background:var(--hatch-av);border-radius:6px 6px 0 0;display:flex;align-items:flex-start;justify-content:center;padding-top:var(--sp-1);font-weight:700;color:var(--txt);font-size:17px;font-variant-numeric:lining-nums tabular-nums;}
+.stairs-x{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);margin-top:6px;}
+.stairs-x span{text-align:center;font-size:12.5px;color:var(--txt-sec);font-weight:700;font-variant-numeric:lining-nums tabular-nums;}
+.needs{display:grid;gap:var(--sp-2);margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--border);}
+.needs div{display:grid;grid-template-columns:92px 1fr;gap:var(--sp-2);align-items:baseline;font-size:var(--fs-small);color:var(--txt-muted);line-height:1.4;}
+.needs b{font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--txt);text-align:right;font-variant-numeric:lining-nums tabular-nums;}
+.dv{display:grid;grid-template-columns:36px 1fr;gap:var(--sp-3);align-items:start;padding:var(--sp-3) 0;border-top:1px solid var(--border);}
+.dv:first-child{border-top:none;padding-top:0;}
+.dv__ar{font-size:26px;text-align:center;line-height:1;color:var(--accent);}
+.dv b{display:block;color:var(--txt);font-size:16px;margin-bottom:4px;}
+.dv span{font-size:var(--fs-small);color:var(--txt-muted);line-height:1.55;}
+.mini-note{font-size:12px;color:var(--txt-muted);margin-top:var(--sp-3);line-height:1.5;}
+
+.map-svg{width:100%;height:auto;display:block;border-radius:12px;}
+.map-svg .sphere{fill:#1E3860;}
+.map-svg .land{fill:#3C5477;stroke:#2B4468;stroke-width:.5;}
+.map-svg text{font-family:var(--font-b);}
+.map-lbl{font-size:14px;font-weight:700;fill:var(--txt);paint-order:stroke;stroke:#1E3860;stroke-width:4px;stroke-linejoin:round;}
+.coverage{display:flex;gap:var(--sp-2);align-items:flex-start;margin-top:var(--sp-3);padding:var(--sp-2) var(--sp-3);border:1px solid var(--border);border-radius:var(--r-sm);font-size:var(--fs-small);line-height:1.5;color:var(--txt-sec);}
+.coverage b{color:var(--txt);}
+.region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-2);margin-top:var(--sp-3);}
+@media(min-width:900px){.region-grid{grid-template-columns:repeat(6,1fr);}}
+.region-card{background:var(--bg-nest);border:1px solid var(--border);border-radius:12px;padding:var(--sp-3);}
+.region-card__name{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;margin-bottom:var(--sp-2);}
+.region-card__nums{display:flex;gap:var(--sp-3);align-items:baseline;flex-wrap:wrap;}
+.region-card__nums b{font-size:var(--fs-kpi-m);font-weight:700;letter-spacing:-.02em;line-height:1;font-variant-numeric:lining-nums tabular-nums;}
+.region-card__nums small{font-size:11px;color:var(--txt-muted);margin-left:3px;font-weight:600;}
+.region-card__names{font-size:12px;color:var(--txt-muted);line-height:1.5;margin-top:var(--sp-2);}
+
+/* ch06 — ecosystem */
+.eco{display:grid;gap:var(--sp-5);margin-top:var(--sp-4);}
+@media(min-width:1100px){.eco{grid-template-columns:minmax(0,1fr) 290px;gap:var(--sp-5);}}
+.net-svg{width:100%;height:auto;display:block;}
+.net-svg text{font-family:var(--font-b);pointer-events:none;}
+.net-svg path,.net-svg g.node{transition:opacity .25s,stroke-width .25s;}
+.net-svg .dim{opacity:.07 !important;}
+.net-svg g.node{cursor:pointer;}
+.net-svg g.node:focus{outline:none;}
+.net-svg g.node:focus circle{stroke:var(--accent);stroke-width:3;}
+.bridges{display:grid;gap:var(--sp-2);align-content:start;}
+.bridges__h{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);line-height:1.5;}
+.bridge{background:var(--bg-nest);border:1px solid var(--border);border-radius:var(--r-sm);padding:var(--sp-3);}
+.bridge b{color:var(--txt);font-size:15px;}
+.bridge small{color:var(--txt-muted);font-size:11px;margin-left:6px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+.bridge p{font-size:var(--fs-small);color:var(--txt-sec);line-height:1.55;margin-top:6px;}
+.bridge p em{font-style:normal;font-weight:700;}
+@media(min-width:720px) and (max-width:1099px){.bridges{grid-template-columns:repeat(2,1fr);}.bridges__h{grid-column:1/-1;}}
+.net-desktop{display:none;}
+.net-mobile{display:block;}
+@media(min-width:720px){.net-desktop{display:block;}.net-mobile{display:none;}}
+.hub{background:var(--bg-nest);border:1px solid var(--border);border-radius:12px;padding:var(--sp-3);margin-top:var(--sp-2);}
+.hub__h{display:flex;align-items:center;gap:var(--sp-1);}
+.hub__h i{width:10px;height:10px;border-radius:50%;flex:none;}
+.hub__h b{color:var(--txt);font-size:15px;}
+.hub__h small{margin-left:auto;font-size:11px;color:var(--txt-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+.hub__ties{display:flex;flex-wrap:wrap;gap:6px;margin-top:var(--sp-2);}
+.tie{font-size:12px;padding:3px 10px;border-radius:12px;color:var(--txt-sec);border:1px solid rgba(139,205,255,.4);}
+.tie--ev{border:1px dashed var(--col-ev);color:var(--col-ev);}
+.tie--both{border:1px solid var(--col-cap);color:var(--col-cap);}
+
+/* ch07 — questions & conclusion */
+.qseq{margin-top:var(--sp-5);position:relative;list-style:none;}
+.qseq::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--accent),rgba(139,205,255,.05));}
+.q{display:grid;grid-template-columns:48px 1fr;gap:var(--sp-3);padding:var(--sp-3) 0;position:relative;}
+.q__n{font-size:16px;font-weight:700;letter-spacing:.02em;color:var(--ink);background:var(--accent);width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;font-variant-numeric:lining-nums tabular-nums;}
+.q__body{padding-top:4px;}
+.q__tag{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);}
+.q__text{font-size:clamp(18px,2.5vw,27px);font-weight:600;line-height:1.32;letter-spacing:-.01em;color:var(--txt);margin-top:6px;max-width:760px;}
+@media(min-width:768px){
+  .qseq::before{left:39px;}
+  .q{grid-template-columns:80px 1fr;gap:var(--sp-4);padding:var(--sp-4) 0;}
+  .q__n{width:80px;height:80px;font-size:24px;}
+  .q__body{padding-top:12px;}
+}
+.closing{margin-top:var(--sp-7);padding:var(--sp-5) var(--sp-4);border-radius:18px;background:linear-gradient(150deg,rgba(26,77,122,.62),rgba(34,30,65,.96));border:1px solid var(--border);}
+@media(min-width:768px){.closing{padding:var(--sp-7) var(--sp-7);}}
+.closing__k{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);margin-bottom:var(--sp-3);}
+.closing p{font-size:clamp(21px,2.8vw,31px);font-weight:600;line-height:1.38;letter-spacing:-.01em;color:var(--txt);}
+.closing p em{display:block;margin-top:.45em;color:var(--accent);font-style:normal;}
+
+/* footer */
+.footer{background:var(--bg-alt);padding:var(--sp-7) var(--g);text-align:center;border-top:1px solid var(--border);}
+.footer__divider{width:40px;height:1px;background:var(--border);margin:var(--sp-4) auto;}
+.footer__text{font-size:14px;color:var(--txt-sec);line-height:1.7;max-width:520px;margin:var(--sp-2) auto 0;}
+.footer__disclaimer{font-size:12px;color:var(--txt-muted);line-height:1.65;margin:var(--sp-3) auto 0;max-width:640px;}
+
+/* ---------- 8. RESPONSIVE TWEAKS ---------- */
+@media(max-width:639px){
+  .map-lbl{display:none;}
+  .ybars__plot{height:250px;}
+  .ybar__tot{font-size:12px;}
+  .ybar__tot--hi{font-size:14px;}
+  .ybars__x span{font-size:11px;}
+  .ybars__note{position:static;max-width:none;margin-bottom:var(--sp-3);}
+  .ybars__sum{margin-left:0;}
+}
+
+/* ---------- 9. MOTION ---------- */
+@media(prefers-reduced-motion:no-preference){
+  .ybar__stack{transform:scaleY(0);transition:transform .9s var(--ease);transition-delay:calc(var(--i)*90ms);}
+  .visible .ybar__stack{transform:none;}
+  .net-svg #net-links path{opacity:0;transition:opacity .9s var(--ease);}
+  .visible .net-svg #net-links path{opacity:var(--o,1);}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover__topbar">
+    <img src="deploy/logo clear.svg" alt="Astara Intelligence" style="height:16px;width:auto;">
+    <div class="cover__divider"></div>
+    <div class="cover__label">In Depth #91</div>
+  </div>
+  <div class="cover__inner">
+    <figure class="cover__photo">
+      <img src="deploy/img/hero-1672.webp"
+           srcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w"
+           sizes="(min-width:900px) 76vw, 100vw" width="1672" height="941" fetchpriority="high" decoding="async"
+           alt="Electric heavy truck connected to a charging station at a logistics hub at dusk">
+    </figure>
+    <div class="cover__content">
+      <div class="cover__pill"><span>Electric · Autonomous · Heavy Freight</span></div>
+      <h1 class="cover__title">Two revolutions,<br>one <span>truck</span></h1>
+      <p class="cover__sub">The electrification and autonomy of heavy freight, <span style="white-space:nowrap">2019–2026</span></p>
+      <div class="cover__meta">
+        <span class="cover__date">Prepared 7 October 2026</span>
+        <span class="cover__tag">EV + AV · 2019–2026</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 01 THESIS -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">01</span><span class="chapter-label-text">The Thesis</span></div>
+    <h2 class="chapter-title">The truck is being <span>rebuilt twice</span></h2>
+  </div>
+  <div class="reading reveal"><p class="body-text lead-para" data-pdf="s1p1">A heavy truck is not bought because it is exciting. It is bought because it earns money. Fleets care about cost per kilometer, uptime and utilization. That is why electrification and autonomy took longer to reach trucks than passenger cars, and why the market can move quickly once the economics work.</p></div>
+
+  <figure class="fig reveal" aria-label="The two pathways: electric and autonomous trucking">
+    <div class="pathways">
+      <article class="path path--ev">
+        <div class="path__tag">Revolution 1 · Electric</div>
+        <p class="path__head excerpt-text">The electric transition is already real, but uneven.</p>
+        <div class="kpi">~30%</div>
+        <p class="kpi-lab">battery-electric share of medium- and heavy-truck sales in China, 2025</p>
+        <div class="hbars" role="img" aria-label="China about 30 percent in 2025; Europe 4.5 percent in 2025; United States expected below 5 percent in 2030">
+          <div><div class="hbar__lab"><span><b>China</b> · BEV, medium + heavy</span><small>2025 · ~30%</small></div><div class="hbar__track"><div class="hbar__fill" style="width:85.7%"></div></div></div>
+          <div><div class="hbar__lab"><span><b>Europe</b> · zero-emission, &gt;3.5 t</span><small>2025 · 4.5%</small></div><div class="hbar__track"><div class="hbar__fill" style="width:12.9%"></div></div></div>
+          <div><div class="hbar__lab"><span><b>United States</b> · BEV + hybrid</span><small>2030 expected · &lt;5%</small></div><div class="hbar__track"><div class="hbar__fill hbar__fill--fc" style="width:14.3%"></div></div></div>
+        </div>
+        <div class="path__foot"><b>€100,000</b> five-year saving vs diesel in the Netherlands (T&amp;E) · about €123,000 under the diesel-price shock scenario</div>
+      </article>
+      <article class="path path--av">
+        <div class="path__tag">Revolution 2 · Autonomous</div>
+        <p class="path__head excerpt-text">Autonomy is at an earlier stage, but its threshold has been crossed.</p>
+        <div class="kpi">~20</div>
+        <p class="kpi-lab">Aurora driverless trucks in operation, June 2026</p>
+        <div class="ladder">
+          <div class="ladder__v ladder__v--act">440,000</div><div class="ladder__t">driverless miles to June 2026 <span class="chip chip--act">Actual</span></div>
+          <div class="ladder__v">&gt;200</div><div class="ladder__t">trucks by year-end 2026 <span class="chip chip--tgt">Target</span></div>
+          <div class="ladder__v">30,000</div><div class="ladder__t">trucks by 2030 <span class="chip chip--tgt">Target</span></div>
+        </div>
+        <div class="path__foot">Commercial driverless operations in Texas since <b>30 April 2025</b></div>
+      </article>
+    </div>
+    <div class="key-legend"><span><i class="sq" style="background:var(--col-ev)"></i>Reported share</span><span><i class="sq hatch-ev"></i>Expected / forecast</span><span><span class="chip chip--act">Actual</span> reported operations</span><span><span class="chip chip--tgt">Target</span> company targets</span></div>
+    <figcaption>The three EV shares use different metrics, markets and years, as reported by their sources; they show direction, not a like-for-like ranking. See chapter 05.</figcaption>
+  </figure>
+
+  <div class="reading gap-top">
+    <p class="body-text reveal" data-pdf="s1p2">The electric transition is already real, but uneven. China is clearly ahead: battery-electric trucks represented almost 30% of medium- and heavy-truck sales in 2025. Europe reached 4.5% for zero-emission trucks above 3.5 tonnes, while the US is still expected to remain below 5% for battery-electric plus hybrid trucks in 2030.</p>
+    <p class="body-text reveal" data-pdf="s1p3">In Europe, the most important change is economics. T&amp;E estimates that electric trucks are already cheaper than diesel over five years in six of the nine major EU markets it analysed. In the Netherlands, for example, the saving is about €100,000 over five years, rising to roughly €123,000 under the diesel-price shock scenario.</p>
+    <p class="body-text reveal" data-pdf="s1p4">Autonomy is at an earlier stage, but its threshold has been crossed. Aurora began commercial driverless operations in Texas on 30 April 2025. By June 2026 it reported about 440,000 driverless miles and around 20 trucks in operation, with a target of more than 200 by year-end and 30,000 by 2030. The challenge now is not proving that a truck can drive itself. It is proving that the model can scale.</p>
+  </div>
+  <div class="statement reveal"><p data-pdf="s1p5">That is the central tension of the whole story: <em>technology is becoming credible faster than the business model becoming more mature.</em></p></div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 02 ELECTRIC -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">02</span><span class="chapter-label-text">Electric Trucks</span></div>
+    <h2 class="chapter-title">From promise <span>to product</span></h2>
+  </div>
+  <div class="reading">
+    <p class="body-text lead-para reveal" data-pdf="s2p1">The electric truck story can now be read as a simple progression: first the announcements, then the first deliveries, then the first real products. Each phase has also exposed a different weakness in the market.</p>
+    <p class="body-text reveal" data-pdf="s2p2">Between 2019 and 2021, manufacturers set ambitious roadmaps while start-ups attracted large amounts of capital. Traton increased investment, Volvo and Scania committed to electric ranges, Mercedes introduced the eActros LongHaul, and Nikola reached the public market through a SPAC. The 2021 T&amp;E study was already arguing that electric was close to diesel on cost.</p>
+    <p class="body-text reveal" data-pdf="s2p3">The next phase brought the first serious deliveries and the first failures. Volta Trucks raised €230 million in February 2022. Volvo secured major orders; Renault opened its heavy electric range for orders. Then the market turned off. Nikola cut 23% of its workforce in 2023 and Volta filed for bankruptcy in October 2023 after raising $390.9 million.</p>
+  </div>
+
+  <figure class="band reveal">
+    <img src="deploy/img/ch02-electric-1672.webp" srcset="deploy/img/ch02-electric-840.webp 840w, deploy/img/ch02-electric-1672.webp 1672w" sizes="(min-width:1280px) 1160px, calc(100vw - 48px)" width="1672" height="941" loading="lazy" decoding="async"
+         alt="Electric tractor-trailer connected to a charging station at a depot at dusk">
+  </figure>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">Visual 1 · EV timeline</div>
+      <div class="fig__title">Announcements, first deliveries, real products</div>
+      <div id="hist-ev" class="hist"></div>
+    </div>
+    <figcaption><span data-pdf="v1">From 2019 roadmaps and early funding to series production, longer-range trucks and the arrival of Chinese entrants in Europe.</span> Selection of events from the Astara Intelligence truck database; key milestones are the turning points named in the text.</figcaption>
+  </figure>
+
+  <div class="reading gap-top">
+    <p class="body-text reveal" data-pdf="s2p4">By 2024–2026, the discussion had shifted from whether electric trucks could work to what the best commercial product would look like. Mercedes demonstrated a 40-tonne eActros 600 over 1,000 km with one charging stop. Tesla moved the Semi into high-volume production with an 822 kWh battery. BYD brought the ETT 44 to Europe with 600 km of range and a 20-minute charge. Scania announced a 720 km battery solution, while Volvo moved the FH Aero Electric into production. At the same time, Chinese manufacturers began to compete more directly on price: T&amp;E puts a Chinese-built electric truck at about €210,000 versus €265,000 for a comparable European model.</p>
+  </div>
+  <figure class="fig reveal" style="max-width:880px;">
+    <div class="fig__frame">
+      <div class="fig__kicker">Price pressure</div>
+      <div class="fig__title">A Chinese-built electric truck vs a comparable European model</div>
+      <div class="duel" role="img" aria-label="Chinese-built electric truck about 210,000 euros versus 265,000 euros for a comparable European model, according to T&amp;E">
+        <div class="duel__row"><div class="duel__lab"><b>Chinese-built</b>electric truck</div><div class="duel__bar" style="width:79.2%;background:var(--col-ev);">€210,000</div></div>
+        <div class="duel__row"><div class="duel__lab"><b>European</b>comparable model</div><div class="duel__bar" style="width:100%;background:#DCE5ED;">€265,000</div></div>
+      </div>
+      <p class="duel__gap"><b>€55,000 gap</b> · the Chinese-built truck is about 21% cheaper</p>
+    </div>
+    <figcaption>Source: Transport &amp; Environment (T&amp;E), 2026. Prices are approximate, as reported.</figcaption>
+  </figure>
+  <div class="reading gap-top">
+    <p class="body-text reveal" data-pdf="s2p5">So, the question is changing. The issue is no longer whether electric trucks can replace diesel in principle. It is where the economics are already better, how quickly infrastructure catches up and how much pressure lower-cost Chinese products put on established manufacturers.</p>
+  </div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 03 AUTONOMOUS -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">03</span><span class="chapter-label-text">Autonomous Trucks</span></div>
+    <h2 class="chapter-title">From pilot <span>to driverless</span></h2>
+  </div>
+  <div class="reading">
+    <p class="body-text lead-para reveal" data-pdf="s3p1">Autonomous trucking followed a more dramatic path. In 2019–2021, the sector was full of pilots, partnerships, and public-market excitement. Starsky Robotics was already testing uncrewed trucks in 2019. TuSimple, Aurora, Embark, Plus, Kodiak and Gatik all worked with major carriers. TuSimple raised $1.35 billion in its 2021 IPO, while Embark and Aurora reached the public markets through SPAC deals.</p>
+    <p class="body-text reveal" data-pdf="s3p2">Then the model was tested by reality. Embark went from a $5 billion SPAC valuation to a sale for about $71 million in 2023. Waymo paused its trucking programme. TuSimple closed its US operations. These were not failures of the concept alone. They were failures of timing, capital intensity, commercial scale, or some combination of the three.</p>
+  </div>
+  <blockquote class="excerpt reveal"><p class="excerpt-text">These were not failures of the concept alone.</p><cite>From the analysis</cite></blockquote>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">Visual 2 · AV timeline</div>
+      <div class="fig__title">Pilots, public-market excitement, reality check, driverless freight</div>
+      <div id="hist-av" class="hist"></div>
+    </div>
+    <figcaption><span data-pdf="v2">The path from pilots and SPACs to commercial driverless freight, with failures and pauses visible alongside the launches.</span> Selection of events from the Astara Intelligence truck database; key milestones are the turning points named in the text.</figcaption>
+  </figure>
+
+  <div class="split reveal">
+    <div class="split__text"><p class="body-text" data-pdf="s3p3">The more recent phase is different. Partnerships have become more operational, and driverless service has moved onto real freight lanes. Aurora launched commercial driverless operations in Texas in April 2025 and has expanded across Texas, New Mexico and Arizona. Gatik reached fully driverless commercial delivery at scale in January 2026. Kodiak is targeting a driverless long-haul launch with IKEA, while Einride and Lidl deployed a driverless cab-less truck on German public roads in September 2026. Pony.ai is also expanding its robotruck activity in China and targeting Europe.</p></div>
+    <figure class="split__img">
+      <img src="deploy/img/ch03-autonomous-1672.webp" srcset="deploy/img/ch03-autonomous-840.webp 840w, deploy/img/ch03-autonomous-1672.webp 1672w" sizes="(min-width:960px) 680px, calc(100vw - 48px)" width="1672" height="941" loading="lazy" decoding="async"
+           alt="Autonomous tractor-trailer with roof-mounted sensors driving on a desert highway at sunset">
+    </figure>
+  </div>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-pdf="s3p4">But the scale gap remains enormous. Around 20 commercial driverless trucks today against a target of 30,000 by 2030 means the industry still must grow by roughly 1,500 times. That is why the next few years matter more than the previous few: the question is no longer whether autonomous trucks can work, but whether operators can deploy them fast enough to make the economics compelling.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">The scale gap</div>
+      <div class="fig__title">Aurora today vs Aurora's own targets: one square = one truck</div>
+      <div class="scale">
+        <div id="scale-viz"></div>
+        <div class="scale__notes">
+          <div class="snote"><span class="snote__sw" style="background:var(--col-av);"></span><div><div class="snote__v">~20 trucks</div><div class="snote__t"><span class="chip chip--act">Actual</span> commercial driverless trucks in operation (June 2026), after ~440,000 driverless miles</div></div></div>
+          <div class="snote"><span class="snote__sw" style="border:2px dashed #DCE5ED;"></span><div><div class="snote__v">&gt;200 trucks</div><div class="snote__t"><span class="chip chip--tgt">Target</span> by year-end 2026</div></div></div>
+          <div class="snote"><span class="snote__sw" style="background:rgba(139,205,255,.18);border:1px dashed var(--col-av);"></span><div><div class="snote__v">30,000 trucks</div><div class="snote__t"><span class="chip chip--tgt">Target</span> by 2030</div></div></div>
+          <div class="scale__ratio">Growth needed from today to the 2030 target<b>≈1,500×</b></div>
+        </div>
+      </div>
+    </div>
+    <figcaption>Targets are company statements, not forecasts by Astara Intelligence. The squares are drawn to scale. Source: Aurora disclosures and press reports, 2025–2026.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 04 SHAKE-OUT -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">04</span><span class="chapter-label-text">The Shake-out</span></div>
+    <h2 class="chapter-title">Capital creates <span>winners and losers</span></h2>
+  </div>
+  <div class="reading"><p class="body-text lead-para reveal" data-pdf="s4p1">The funding history tells a useful story. Autonomous trucking attracted far more disclosed capital than electric trucks in this dataset: about $6.4 billion from 2021 to 2026 versus about $1.3 billion for electric trucks. More than half of the autonomous total came from the 2021 listing wave.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">Visual 5 · Funding by year</div>
+      <div class="fig__title">One listing wave, then a smaller and more selective second wave</div>
+      <div class="split-bar" id="split"></div>
+      <div class="key-legend"><span><i class="sq" style="background:var(--col-av)"></i>AV · SPACs &amp; public offerings</span><span><i class="sq" style="background:#528DBC"></i>AV · venture</span><span><i class="sq" style="background:var(--col-ev)"></i>EV · venture</span></div>
+      <div class="ybars" id="ybars"></div>
+    </div>
+    <figcaption><span data-pdf="v5">Disclosed capital raised from 2021 to 2026. The 2021 autonomous funding wave stands out, followed by a smaller and more selective second wave.</span> Only deals with a disclosed amount are counted (2023 has none); 2026 is year to date. EUR and CNY converted to USD at ECB reference rates on the deal date. Source: company announcements, SEC filings and press reports; Astara Intelligence database.</figcaption>
+  </figure>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-pdf="s4p2">That money created scale, but it also created inflated expectations. Embark went from a $5.2 billion SPAC valuation to a roughly $71 million sale. Nikola reached a peak market value of around $26–30 billion before filing Chapter 11. Volta Trucks failed after raising $390.9 million. TuSimple raised $1.35 billion in its IPO and still exited the US.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">Visual 3 · Exits and failures</div>
+      <div class="fig__title">Initial ambition vs eventual outcome</div>
+      <p class="fig__dek">Each figure is labelled by what it measures: market value, valuation at listing, capital raised and acquisition price are different things and are not interchangeable.</p>
+      <div class="ao" id="ao"></div>
+      <div class="ao-minor"><div class="hlabel" style="margin-bottom:0;">Other exits and setbacks</div><ul id="ao-minor"></ul></div>
+    </div>
+    <figcaption><span data-pdf="v3">The casualties of the 2020–2021 funding wave, showing how quickly valuations and ambitions could collapse.</span> Status as of October 2026. Source: company filings, FreightWaves, Bloomberg, WSJ, TechCrunch; Astara Intelligence database.</figcaption>
+  </figure>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-pdf="s4p3">The more resilient companies are the ones that continued to raise capital while moving toward a real commercial product. Aurora, Kodiak, Waabi, Gatik and Einride all raised, listed or completed a PIPE in 2025–2026. But the lesson is not that funding guarantees survival. It does the opposite: it buys time to prove the model. Partnerships help, but they are not enough on their own. TuSimple had relationships with Traton, Navistar and DHL and still left the US.</p></div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 05 MARKET -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">05</span><span class="chapter-label-text">Where the Market Is Moving</span></div>
+    <h2 class="chapter-title">Not one global transition, <span>but three</span></h2>
+  </div>
+
+  <div class="regions reveal">
+    <article class="region">
+      <header><div class="region__tag">China</div><h3 class="region__model">Electric at scale</h3></header>
+      <div class="rviz">
+        <div class="rviz__big">126,200<small>new-energy heavy trucks sold in H1 2026, up 85% year on year · plus 1.6 million new-energy heavy trucks targeted by 2030</small></div>
+        <div class="meter" role="img" aria-label="China: battery-electric share of medium and heavy truck sales almost 30 percent in 2025; target 40 percent penetration by 2030">
+          <div class="meter__track"><div class="meter__fill" style="width:60%"></div><div class="meter__tgt" style="left:80%"></div></div>
+          <div class="meter__labs"><span class="l" style="left:60%"><b>~30%</b>2025 actual</span><span class="r" style="left:80%"><b>40%</b>2030 target</span></div>
+        </div>
+        <p class="mini-note">Scale 0–50%. Actual = battery-electric share of medium- and heavy-truck sales; target = new-energy heavy-truck penetration.</p>
+      </div>
+      <p class="body-text" data-pdf="s5p1">The market is not developing at the same speed everywhere. China has moved fastest on electric trucks because economics, industrial policy and infrastructure are reinforcing each other. In the first half of 2026, new-energy heavy-truck sales reached about 126,200, up 85% year on year, while China is targeting 40% penetration and 1.6 million new-energy heavy trucks by 2030.</p>
+    </article>
+    <article class="region">
+      <header><div class="region__tag">Europe</div><h3 class="region__model">Regulation-led</h3></header>
+      <div class="rviz">
+        <div class="stairs-h">EU heavy-duty CO₂ targets <span class="chip chip--tgt">Target</span></div>
+        <div class="stairs" role="img" aria-label="EU heavy-duty CO2 reduction targets: minus 45 percent by 2030, minus 65 percent by 2035, minus 90 percent by 2040"><div style="height:50%">−45%</div><div style="height:72%">−65%</div><div style="height:100%">−90%</div></div>
+        <div class="stairs-x"><span>2030</span><span>2035</span><span>2040</span></div>
+        <div class="needs">
+          <div><b>~100,000</b><span>new zero-emission trucks a year for 2030 (ACEA)</span></div>
+          <div><b>~50,000</b><span>public chargers, incl. 35,000 megawatt points</span></div>
+          <div><b>700</b><span>hydrogen stations</span></div>
+        </div>
+      </div>
+      <p class="body-text" data-pdf="s5p2">Europe is moving more slowly, but with stronger regulatory pressure. Electric trucks are becoming more competitive on total cost, while the EU is still committed to heavy-duty carbon-dioxide targets of -45% by 2030, -65% by 2035 and -90% by 2040. The problem is infrastructure. ACEA estimates that reaching the 2030 target will require roughly 100,000 new zero-emission trucks a year, around 50,000 public chargers including 35,000 megawatt charging points, and 700 hydrogen stations.</p>
+    </article>
+    <article class="region">
+      <header><div class="region__tag">United States</div><h3 class="region__model">Two speeds</h3></header>
+      <div class="rviz">
+        <div class="dv"><div class="dv__ar">↘</div><div><b>Electric</b><span>Federal incentives for clean commercial vehicles reduced or removed; battery-electric plus hybrid trucks expected below 5% of sales in 2030.</span></div></div>
+        <div class="dv"><div class="dv__ar">↗</div><div><b>Autonomous</b><span>Regulation becoming more open: Aurora driverless in Texas since April 2025; California finalised rules opening the state to heavy-duty autonomous vehicles in 2026.</span></div></div>
+      </div>
+      <p class="body-text" data-pdf="s5p3">The US is taking a different path. Federal incentives for clean commercial vehicles have been reduced or removed, while the regulatory environment is becoming more open to autonomous trucks. That creates a market where electric adoption can slow even as autonomous freight accelerates. The result is not one global transition, but three different versions of it.</p>
+    </article>
+  </div>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-pdf="s5p4">The company map reflects that geography. The US remains the main autonomous cluster, China is the strongest electric market, and Europe sits between the two, with incumbent truck manufacturers and a growing group of start-ups trying to combine electrification, software and autonomy.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">Visual 4 · Company map</div>
+      <div class="fig__title">Where the companies in the database are based</div>
+      <div class="coverage"><span><b>Circle size = database coverage.</b> It counts the company profiles held in the Astara Intelligence database, plus the main truck OEMs, per region. It is not market size, sales or regional leadership.</span></div>
+      <div class="key-legend"><span><i style="background:var(--col-ev)"></i>Electric (EV)</span><span><i style="background:var(--col-av)"></i>Autonomous (AV)</span><span><i style="background:var(--col-cap)"></i>Both (EV + AV)</span></div>
+      <div id="map" style="margin-top:var(--sp-3);"></div>
+      <div class="region-grid" id="region-grid"></div>
+    </div>
+    <figcaption><span data-pdf="v4">A world view of the main companies in the ecosystem, showing how the US and China have developed different centres of gravity.</span> Regions are drawn at an approximate centre. Cleaning applied to the source table: three duplicate profiles removed (Torc, Kodiak, Senior Auto / Sinian Zhijia) and two countries assigned (Bollinger Motors: US; Rideflux: South Korea). Some EV profiles are van, bus or light-vehicle makers.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 06 CONVERGENCE -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">06</span><span class="chapter-label-text">Convergence</span></div>
+    <h2 class="chapter-title">The two revolutions are <span>starting to converge</span></h2>
+  </div>
+  <div class="reading">
+    <p class="body-text lead-para reveal" data-pdf="s6p1">Electric and autonomous trucks are not separate stories. The same companies increasingly operate across both layers, and the same customers appear in both ecosystems. Einride has built its proposition around electric and autonomous freight from the start. Volvo is active in both and works with Aurora, Waabi and DHL. Daimler Truck combines electric products with Torc. Pony.ai is developing its latest robotruck with GAC.</p>
+    <p class="body-text reveal" data-pdf="s6p2">This is important because the eventual winner may not be the company with the best battery or the best autonomous software in isolation. It may be the company that can bring the whole system together: vehicle, software, charging, fleet operations, and paying customers.</p>
+  </div>
+
+  <figure class="band reveal">
+    <img src="deploy/img/ch06-convergence-1672.webp" srcset="deploy/img/ch06-convergence-840.webp 840w, deploy/img/ch06-convergence-1672.webp 1672w" sizes="(min-width:1280px) 1160px, calc(100vw - 48px)" width="1672" height="941" loading="lazy" decoding="async"
+         alt="Cab-less autonomous truck, charging stations and automated warehouse vehicles linked by connectivity arcs">
+  </figure>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__kicker">Visual 6 · Alliances</div>
+      <div class="fig__title">Truck makers, autonomous developers and the freight customers they serve</div>
+      <p class="fig__dek">Six companies tie both revolutions together. Their relationships are drawn in full; every other tie is shown fainter.</p>
+      <div class="key-legend">
+        <span><i style="background:#FFFFFF"></i>Truck OEM</span><span><i style="background:#5A7A94"></i>Tech / energy supplier</span><span><i style="background:var(--col-av)"></i>Developer / operator</span><span><i style="background:var(--col-ship)"></i>Shipper / carrier</span>
+        <span><i class="ring"></i>Ties in both EV and AV</span>
+        <span><span style="display:inline-block;width:18px;border-top:2px solid var(--col-av);"></span>AV tie</span><span><span style="display:inline-block;width:18px;border-top:2px dashed var(--col-ev);"></span>EV tie</span><span><span style="display:inline-block;width:18px;border-top:2px solid var(--col-cap);"></span>EV and AV tie</span>
+      </div>
+      <div class="eco">
+        <div>
+          <div class="net-desktop" id="net"></div>
+          <div class="net-mobile" id="hubs"></div>
+        </div>
+        <aside class="bridges" id="bridges" aria-label="Companies with ties in both EV and AV"></aside>
+      </div>
+    </div>
+    <figcaption><span data-pdf="v6">The network linking truck makers, autonomous developers and large freight customers. The strongest relationships increasingly connect both EV and AV.</span> Partnerships and orders 2019–2026 from the Astara Intelligence database; not exhaustive. On larger screens, hover or tap a company to isolate its ties.</figcaption>
+  </figure>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-pdf="s6p3">The alliance network makes that visible. OEMs remain the industrial anchors, autonomous developers provide the software layer, and shippers and logistics companies provide the routes and the demand. Volvo and Einride are particularly interesting because they sit between several parts of the ecosystem. The recurring customers, including DHL, FedEx, Amazon, Walmart and PepsiCo, also show that the same large fleets are watching both revolutions at once.</p></div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 07 WHAT MATTERS NEXT -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">07</span><span class="chapter-label-text">What Matters Next</span></div>
+    <h2 class="chapter-title">Less announcement, <span>more proof</span></h2>
+  </div>
+  <div data-pdf="s7p1">
+    <p class="body-text lead-para reveal" style="max-width:760px;">The next phase will be judged less by announcements and more by proof.</p>
+    <ol class="qseq">
+      <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag">Autonomy · scale</div><p class="q__text">Can Aurora move from around 20 trucks to more than 200?</p></div></li>
+      <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag">Autonomy · long haul</div><p class="q__text">Can Kodiak launch a reliable long-haul service?</p></div></li>
+      <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag">Electric · cost and charging</div><p class="q__text">Can electric trucks keep improving their cost advantage while charging infrastructure catches up?</p></div></li>
+      <li class="q reveal"><div class="q__n">04</div><div class="q__body"><div class="q__tag">Electric · competition</div><p class="q__text">Can Chinese manufacturers enter Europe at lower prices without turning the market into a race to the bottom?</p></div></li>
+      <li class="q reveal"><div class="q__n">05</div><div class="q__body"><div class="q__tag">Capital</div><p class="q__text">And can new companies still access public capital after the hangover from 2021?</p></div></li>
+    </ol>
+  </div>
+  <div class="reading gap-top"><p class="body-text reveal" data-pdf="s7p2">For fleets, the decision is becoming practical, especially by economics proofs. If these vehicles show a better balance in Total cost of Ownership (TCO) or Total Cost of Management (TCM), operators will look at it and take them as driver of buying. Electric trucks are increasingly a question of route economics and charging availability. Autonomous trucks are increasingly a question of utilisation, labour substitution and whether driverless miles can be scaled reliably. For manufacturers, the challenge is broader: they must manage both transitions while protecting margins and adapting to a market in which software, capital and partnerships matter almost as much as the truck itself.</p></div>
+  <div class="closing reveal"><div class="closing__k">Conclusion</div><p data-pdf="s7p3">The simple conclusion is that both revolutions have moved beyond the “will it happen?” stage. Electrification is already commercial in the right market. Autonomy has reached commercial service, but not yet on a commercial scale. <em>The winners of the next cycle will be the companies that can turn technological progress into repeatable economics.</em></p></div>
+</div>
+</section>
+
+<footer class="footer">
+  <img src="deploy/logo clear.svg" alt="Astara Intelligence" style="height:18px;width:auto;margin:0 auto;opacity:0.7;">
+  <div class="footer__divider"></div>
+  <p class="footer__text">Astara Intelligence In Depth is a periodic analysis of the automotive and mobility sector for professionals navigating strategic uncertainty.</p>
+  <p class="footer__disclaimer">Sources: Transport &amp; Environment (T&amp;E), ICCT, BCG, ACEA, BloombergNEF, SMM, electrive, company announcements and filings, FreightWaves, TechCrunch, Bloomberg, WSJ, and the Astara Intelligence truck database (business lines: Commercial Vehicle &amp; Truck Strategy; Autonomous Trucking &amp; Freight; Freight &amp; Long-Haul Trucking). Timelines and funding cover medium and heavy trucks; the company map reflects database profiles (see its note). Funding amounts are only those explicitly disclosed. Prepared 7 October 2026; figures reflect published data as of that date and are subject to revision. This newsletter is produced for informational purposes only and does not constitute investment advice. © 2026 Astara Intelligence.</p>
+</footer>
+
+<script src="deploy/d3.v7.min.js"></script>
+<script src="deploy/topojson-client.min.js"></script>
+<script src="deploy/countries-110m.js"></script>
+<script>
+const DATA = {
+ "ev": [
+  {
+   "y": 2019,
+   "who": "Traton",
+   "t": "commits billions to e-mobility",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Nikola",
+   "t": "goes public via SPAC, opening the 2020–21 capital wave",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Mercedes-Benz Trucks",
+   "t": "unveils the eActros LongHaul: long-haul enters OEM roadmaps",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Volvo Trucks",
+   "t": "pledges to electrify its entire line-up",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Transport & Environment",
+   "t": "study: electric trucks close to cost parity with diesel",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Volta Trucks",
+   "t": "closes a €230M round, the peak of European e-truck start-up funding",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Volvo Trucks",
+   "t": "receives a record electric-truck order from Maersk",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Renault Trucks",
+   "t": "opens its heavy electric range for orders",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2022,
+   "who": "Tesla",
+   "t": "starts Semi deliveries, first to PepsiCo",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Nikola",
+   "t": "cuts 23% of its workforce",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Mercedes-Benz Trucks",
+   "t": "40-tonne eActros 600 drives 1,000 km with a single charging stop",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Volta Trucks",
+   "t": "files for bankruptcy after raising $390.9M",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2024,
+   "who": "Amazon",
+   "t": "puts its first electric semis into freight operations",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Nikola",
+   "t": "files for Chapter 11; peak market value was ~$26–30B in 2020",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Harbinger",
+   "t": "raises a $160M Series C co-led by FedEx",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Bollinger Motors",
+   "t": "shuts down amid financial woes",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Kenworth / Peterbilt",
+   "t": "launch new electric trucks for North America",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Tesla",
+   "t": "Semi's first truck rolls off the high-volume production line",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Tesla",
+   "t": "confirms an 822 kWh battery for the Semi",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Windrose",
+   "t": "Tesla Semi challenger reported to be missing paychecks and a truck",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Mars / Rewe",
+   "t": "deploy 47 battery-electric trucks on a shared pilot corridor",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Amazon",
+   "t": "receives its first eActros 600 trucks in Germany",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "BYD",
+   "t": "brings the ETT 44 to Europe: 600 km range, 20-minute charge",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Volvo Trucks",
+   "t": "starts production of the FH Aero Electric",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Scania",
+   "t": "announces a battery solution for 720 km of range",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "FedEx / Harbinger",
+   "t": "FedEx orders 2,000 electric trucks in a $300M deal",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  }
+ ],
+ "av": [
+  {
+   "y": 2019,
+   "who": "Daimler Truck",
+   "t": "buys a stake in Torc Robotics",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2019,
+   "who": "Starsky Robotics",
+   "t": "runs the first uncrewed truck at highway speed (55 mph)",
+   "g": "product",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Starsky Robotics",
+   "t": "shuts down after failing to find a buyer or investors",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2020,
+   "who": "Waymo / Daimler Truck",
+   "t": "Waymo Driver is to power Daimler trucks",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Volvo / Aurora",
+   "t": "partner on autonomous transport solutions",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "TuSimple",
+   "t": "IPO raises $1.35B, peak of the AV-trucking capital cycle",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Embark",
+   "t": "announces a SPAC deal at a $5.2B valuation",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "Aurora",
+   "t": "lists on Nasdaq via SPAC, ~$1.8B gross proceeds",
+   "g": "capital",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "TuSimple / Navistar / DHL",
+   "t": "sell 100 self-driving trucks to DHL",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2021,
+   "who": "TuSimple",
+   "t": "completes its first driverless run on public roads",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Waymo Via",
+   "t": "pauses its trucking programme",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Embark",
+   "t": "sold to Applied Intuition for ~$71M, about 1% of its SPAC valuation",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "Pony.ai",
+   "t": "wins its first autonomous trucking licence in Guangzhou",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2023,
+   "who": "TuSimple",
+   "t": "winds down its US operations",
+   "g": "fail",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2024,
+   "who": "Aurora / Uber Freight",
+   "t": "sign a long-term driverless truck deal after a pilot",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2024,
+   "who": "Volvo / DHL",
+   "t": "begin autonomous truck operations",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Waabi / Volvo",
+   "t": "partner on the Volvo VNL Autonomous",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Aurora",
+   "t": "launches commercial driverless operations in Texas",
+   "g": "deploy",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Kodiak",
+   "t": "lists via SPAC",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Einride",
+   "t": "completes the world's first autonomous border crossing",
+   "g": "deploy",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2025,
+   "who": "Einride",
+   "t": "announces a SPAC with Legato at a $1.8B valuation",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Gatik",
+   "t": "operates fully driverless trucks at commercial scale",
+   "g": "deploy",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Waabi",
+   "t": "raises a $750M Series C, the largest private AV-truck round in the set",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "PlusAI",
+   "t": "SPAC business combination terminated",
+   "g": "fail",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "California DMV",
+   "t": "finalises rules opening the state to heavy-duty autonomous trucks",
+   "g": "capital",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Aurora",
+   "t": "selected by a leading carrier to scale to 500 trucks",
+   "g": "deploy",
+   "key": false,
+   "tgt": true
+  },
+  {
+   "y": 2026,
+   "who": "Volvo",
+   "t": "targets a $3B autonomous business within five years",
+   "g": "capital",
+   "key": false,
+   "tgt": true
+  },
+  {
+   "y": 2026,
+   "who": "Einride / Lidl",
+   "t": "launch the first cab-less truck on a German public road",
+   "g": "deploy",
+   "key": true,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Pony.ai / GAC",
+   "t": "unveil the Gen-4 robotruck, with European sales targeted",
+   "g": "product",
+   "key": false,
+   "tgt": false
+  },
+  {
+   "y": 2026,
+   "who": "Aurora",
+   "t": "targets 30,000 driverless trucks by 2030, from about 20 today",
+   "g": "capital",
+   "key": true,
+   "tgt": true
+  },
+  {
+   "y": 2026,
+   "who": "Kodiak",
+   "t": "picks Dallas–Houston for its driverless long-haul launch",
+   "g": "deploy",
+   "key": false,
+   "tgt": true
+  }
+ ],
+ "exits": [
+  {
+   "y": 2020,
+   "co": "Starsky Robotics",
+   "seg": "AV",
+   "region": "US",
+   "out": "Shut down",
+   "ctx": "No buyer / investors"
+  },
+  {
+   "y": 2023,
+   "co": "Embark",
+   "seg": "AV",
+   "region": "US",
+   "out": "Collapse / sold",
+   "ctx": "USD 5.2B SPAC valuation (2021) -> acquired by Applied Intuition for ~USD 71M (Aug 2023)"
+  },
+  {
+   "y": 2023,
+   "co": "Waymo Via (trucking)",
+   "seg": "AV",
+   "region": "US",
+   "out": "Program paused",
+   "ctx": "Trucking arm practically shut down July 2023; robotaxi continues"
+  },
+  {
+   "y": 2023,
+   "co": "Volta Trucks",
+   "seg": "EV",
+   "region": "Europe (Sweden)",
+   "out": "Bankruptcy",
+   "ctx": "USD 390.9M raised in total; assets bought by Luxor Capital (largest creditor)"
+  },
+  {
+   "y": 2023,
+   "co": "TuSimple",
+   "seg": "AV",
+   "region": "US",
+   "out": "Exit from US",
+   "ctx": "IPO USD 1.35B (Apr 2021) -> US wind-down Dec 2023"
+  },
+  {
+   "y": 2025,
+   "co": "Nikola",
+   "seg": "EV",
+   "region": "US",
+   "out": "Chapter 11",
+   "ctx": "Peak market value ~USD 26-30B (2020); ~USD 47M cash at filing"
+  },
+  {
+   "y": 2025,
+   "co": "Bollinger Motors",
+   "seg": "EV",
+   "region": "US",
+   "out": "Shut down",
+   "ctx": "Financial woes (commercial EV truck pivot)"
+  },
+  {
+   "y": 2026,
+   "co": "Unnamed e-truck start-up",
+   "seg": "EV",
+   "region": "n/a",
+   "out": "Liquidation",
+   "ctx": "Funding drought (company not named in the entry title)"
+  },
+  {
+   "y": 2026,
+   "co": "PlusAI SPAC (Churchill Capital IX)",
+   "seg": "AV",
+   "region": "US",
+   "out": "Deal terminated",
+   "ctx": "Business combination terminated; company continues"
+  },
+  {
+   "y": 2026,
+   "co": "Windrose",
+   "seg": "EV",
+   "region": "US / China",
+   "out": "Distress (reported)",
+   "ctx": "WSJ: missing paychecks and a truck; company had raised USD 110M Series B (Apr 2024)"
+  }
+ ],
+ "funding": {
+  "years": [
+   {
+    "y": 2021,
+    "avPub": 3764,
+    "avVen": 200,
+    "evVen": 55,
+    "total": 4019
+   },
+   {
+    "y": 2022,
+    "avPub": 0,
+    "avVen": 188,
+    "evVen": 260.8,
+    "total": 448.8
+   },
+   {
+    "y": 2023,
+    "avPub": 0,
+    "avVen": 0,
+    "evVen": 0,
+    "total": 0
+   },
+   {
+    "y": 2024,
+    "avPub": 483,
+    "avVen": 200,
+    "evVen": 110,
+    "total": 793
+   },
+   {
+    "y": 2025,
+    "avPub": 212.5,
+    "avVen": 100,
+    "evVen": 335.5,
+    "total": 648
+   },
+   {
+    "y": 2026,
+    "avPub": 100,
+    "avVen": 1193,
+    "evVen": 532.9,
+    "total": 1825.9
+   }
+  ],
+  "totalAV": 6440.5,
+  "totalEV": 1294.2,
+  "total": 7734.700000000001
+ },
+ "map": [
+  {
+   "region": "Europe",
+   "EV": 9,
+   "AV": 1,
+   "BOTH": 2,
+   "names": {
+    "EV": [
+     "18 Wheels",
+     "Designwerk",
+     "Ebusco",
+     "Gaussin",
+     "Herko Trucks",
+     "Tevva Motors",
+     "Torsus",
+     "Daimler Truck / Mercedes-Benz Trucks",
+     "MAN / Traton",
+     "Volvo Group",
+     "Scania"
+    ],
+    "AV": [
+     "Einride",
+     "Daimler Truck / Mercedes-Benz Trucks",
+     "Volvo Group"
+    ]
+   }
+  },
+  {
+   "region": "United States",
+   "EV": 18,
+   "AV": 11,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "Battle Aproved Vehicles",
+     "Battle motors",
+     "Bolinger Motors",
+     "BrightDrop",
+     "Electron transport",
+     "Hyliion",
+     "Lordstown motors",
+     "Meritor",
+     "Motiv Power Systems",
+     "Nikola Motor",
+     "Revoy",
+     "SEA Electric",
+     "Superlight",
+     "Trova Commercial Vehicles",
+     "Voltu",
+     "Workhorse",
+     "XOS trucks",
+     "Tesla"
+    ],
+    "AV": [
+     "Embark Trucks",
+     "Gatik AI",
+     "Humble Robotics",
+     "Kodiak Robotics",
+     "Locomation",
+     "Plus",
+     "Starsky Robotics",
+     "Torc Robotics",
+     "TuSImple",
+     "Waabi",
+     "Aurora"
+    ]
+   }
+  },
+  {
+   "region": "China",
+   "EV": 7,
+   "AV": 5,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "DAMO Truck",
+     "Deepway",
+     "Farizon Auto",
+     "Jinbei",
+     "Sany heavy truck",
+     "Zeron Truck",
+     "BYD"
+    ],
+    "AV": [
+     "Inceptio",
+     "Sinian zhijia",
+     "TrunkTech",
+     "Yikong Zhijia",
+     "Pony.ai"
+    ]
+   }
+  },
+  {
+   "region": "India",
+   "EV": 4,
+   "AV": 0,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "Delta X Automotive",
+     "EVage",
+     "Etrio",
+     "Euler motors"
+    ],
+    "AV": []
+   }
+  },
+  {
+   "region": "Canada",
+   "EV": 2,
+   "AV": 0,
+   "BOTH": 0,
+   "names": {
+    "EV": [
+     "Edison Motors",
+     "Lion Electric"
+    ],
+    "AV": []
+   }
+  },
+  {
+   "region": "Japan & Korea",
+   "EV": 0,
+   "AV": 2,
+   "BOTH": 0,
+   "names": {
+    "EV": [],
+    "AV": [
+     "Rideflux",
+     "Robotruck"
+    ]
+   }
+  }
+ ],
+ "alli": {
+  "nodes": [
+   {
+    "id": "Volvo",
+    "type": "oem",
+    "deg": 5,
+    "both": true
+   },
+   {
+    "id": "Aurora",
+    "type": "dev",
+    "deg": 8,
+    "both": false
+   },
+   {
+    "id": "Paccar",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Uber Freight",
+    "type": "cust",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Nvidia",
+    "type": "tech",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Continental",
+    "type": "tech",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "FedEx",
+    "type": "cust",
+    "deg": 2,
+    "both": true
+   },
+   {
+    "id": "Werner",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "McLeod Software",
+    "type": "tech",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Daimler Truck",
+    "type": "oem",
+    "deg": 3,
+    "both": true
+   },
+   {
+    "id": "Torc",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Waymo",
+    "type": "dev",
+    "deg": 3,
+    "both": false
+   },
+   {
+    "id": "J.B. Hunt",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "UPS",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Waabi",
+    "type": "dev",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "DHL",
+    "type": "cust",
+    "deg": 3,
+    "both": true
+   },
+   {
+    "id": "Kodiak",
+    "type": "dev",
+    "deg": 3,
+    "both": false
+   },
+   {
+    "id": "IKEA",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "U.S. Xpress",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Atlas Energy",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Gatik",
+    "type": "dev",
+    "deg": 6,
+    "both": false
+   },
+   {
+    "id": "Walmart",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Kroger",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Loblaw",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "PepsiCo",
+    "type": "cust",
+    "deg": 2,
+    "both": true
+   },
+   {
+    "id": "Isuzu",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "TuSimple",
+    "type": "dev",
+    "deg": 4,
+    "both": false
+   },
+   {
+    "id": "Navistar",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Union Pacific",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Traton",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Embark",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Knight-Swift",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Einride",
+    "type": "dev",
+    "deg": 6,
+    "both": true
+   },
+   {
+    "id": "Lidl",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "PostNord",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Plus",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "International Motors",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Pony.ai",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "GAC",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Rideflux",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Tata Daewoo",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "YMX Logistics",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Outrider",
+    "type": "dev",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Maersk",
+    "type": "cust",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "BYD",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Amazon",
+    "type": "cust",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Mars",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Holcim",
+    "type": "cust",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Tesla",
+    "type": "oem",
+    "deg": 2,
+    "both": false
+   },
+   {
+    "id": "Harbinger",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Chery Heavy Trucks",
+    "type": "oem",
+    "deg": 1,
+    "both": false
+   },
+   {
+    "id": "Gotion",
+    "type": "tech",
+    "deg": 1,
+    "both": false
+   }
+  ],
+  "links": [
+   {
+    "source": "Volvo",
+    "target": "Aurora",
+    "seg": "AV"
+   },
+   {
+    "source": "Paccar",
+    "target": "Aurora",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Uber Freight",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Nvidia",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Continental",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "FedEx",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "Werner",
+    "seg": "AV"
+   },
+   {
+    "source": "Aurora",
+    "target": "McLeod Software",
+    "seg": "AV"
+   },
+   {
+    "source": "Daimler Truck",
+    "target": "Torc",
+    "seg": "AV"
+   },
+   {
+    "source": "Daimler Truck",
+    "target": "Waymo",
+    "seg": "AV"
+   },
+   {
+    "source": "Waymo",
+    "target": "J.B. Hunt",
+    "seg": "AV"
+   },
+   {
+    "source": "Waymo",
+    "target": "UPS",
+    "seg": "AV"
+   },
+   {
+    "source": "Waabi",
+    "target": "Volvo",
+    "seg": "AV"
+   },
+   {
+    "source": "Waabi",
+    "target": "Uber Freight",
+    "seg": "AV"
+   },
+   {
+    "source": "Volvo",
+    "target": "DHL",
+    "seg": "BOTH"
+   },
+   {
+    "source": "Kodiak",
+    "target": "IKEA",
+    "seg": "AV"
+   },
+   {
+    "source": "Kodiak",
+    "target": "U.S. Xpress",
+    "seg": "AV"
+   },
+   {
+    "source": "Kodiak",
+    "target": "Atlas Energy",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Walmart",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Kroger",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Loblaw",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "PepsiCo",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Nvidia",
+    "seg": "AV"
+   },
+   {
+    "source": "Gatik",
+    "target": "Isuzu",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "Navistar",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "DHL",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "Union Pacific",
+    "seg": "AV"
+   },
+   {
+    "source": "TuSimple",
+    "target": "Traton",
+    "seg": "AV"
+   },
+   {
+    "source": "Embark",
+    "target": "Knight-Swift",
+    "seg": "AV"
+   },
+   {
+    "source": "Einride",
+    "target": "Lidl",
+    "seg": "AV"
+   },
+   {
+    "source": "Einride",
+    "target": "PostNord",
+    "seg": "AV"
+   },
+   {
+    "source": "Plus",
+    "target": "International Motors",
+    "seg": "AV"
+   },
+   {
+    "source": "Pony.ai",
+    "target": "GAC",
+    "seg": "AV"
+   },
+   {
+    "source": "Rideflux",
+    "target": "Tata Daewoo",
+    "seg": "AV"
+   },
+   {
+    "source": "YMX Logistics",
+    "target": "Outrider",
+    "seg": "AV"
+   },
+   {
+    "source": "Einride",
+    "target": "Maersk",
+    "seg": "EV"
+   },
+   {
+    "source": "Einride",
+    "target": "BYD",
+    "seg": "EV"
+   },
+   {
+    "source": "Einride",
+    "target": "Amazon",
+    "seg": "EV"
+   },
+   {
+    "source": "Einride",
+    "target": "Mars",
+    "seg": "EV"
+   },
+   {
+    "source": "Volvo",
+    "target": "Maersk",
+    "seg": "EV"
+   },
+   {
+    "source": "Volvo",
+    "target": "Holcim",
+    "seg": "EV"
+   },
+   {
+    "source": "Daimler Truck",
+    "target": "Amazon",
+    "seg": "EV"
+   },
+   {
+    "source": "Tesla",
+    "target": "PepsiCo",
+    "seg": "EV"
+   },
+   {
+    "source": "Tesla",
+    "target": "DHL",
+    "seg": "EV"
+   },
+   {
+    "source": "Harbinger",
+    "target": "FedEx",
+    "seg": "EV"
+   },
+   {
+    "source": "Chery Heavy Trucks",
+    "target": "Gotion",
+    "seg": "EV"
+   }
+  ]
+ }
+};
+
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const fmtM = v => v>=1000 ? '$'+(v/1000).toFixed(1)+'B' : '$'+Math.round(v)+'M';
+const $ = id => document.getElementById(id);
+
+/* Category colours (charts and chips only). All numbers use Montserrat via the stylesheet. */
+const GROUPS = {
+  product:{label:'Product & technology',color:'#8BCDFF'},
+  deploy:{label:'Orders, fleets & partnerships',color:'#3EC6C6'},
+  capital:{label:'Funding, strategy & policy',color:'#B79CFF'},
+  fail:{label:'Failures & retrenchment',color:'#FF8F9C'}
+};
+
+/* ================= V1 / V2 — phased histories ================= */
+const PHASES = {
+  ev:[
+    {name:'The announcements',dek:'Roadmaps and start-up capital',from:2019,to:2021},
+    {name:'First deliveries, first failures',dek:'Orders arrive; the capital cycle turns',from:2022,to:2023},
+    {name:'Real products',dek:'Series production and international competition',from:2024,to:2026}
+  ],
+  av:[
+    {name:'Pilots and experiments',dek:'Uncrewed runs and OEM tie-ups',from:2019,to:2020},
+    {name:'Public-market excitement',dek:'IPO and SPAC listings',from:2021,to:2021},
+    {name:'Tested by reality',dek:'Pauses, exits and a sale',from:2022,to:2024},
+    {name:'Driverless on real freight lanes',dek:'Commercial service begins',from:2025,to:2026}
+  ]
+};
+function renderHistory(id,key){
+  const items=DATA[key], phases=PHASES[key];
+  let h='<div class="key-legend" style="margin-top:var(--sp-3)">'+Object.values(GROUPS).map(g=>`<span><i style="background:${g.color}"></i>${g.label}</span>`).join('')+
+        '<span><span class="chip chip--tgt">Target</span> announced goal or plan, not yet achieved</span></div>';
+  phases.forEach((p,i)=>{
+    const evs=items.filter(d=>d.y>=p.from&&d.y<=p.to);
+    const keys=evs.filter(d=>d.key), rest=evs.filter(d=>!d.key);
+    const yrs=p.from===p.to?`${p.from}`:`${p.from}–${p.to}`;
+    h+=`<section class="hphase" aria-label="Phase ${i+1}: ${esc(p.name)}"><header class="hphase__head"><div class="hphase__num">Phase 0${i+1}</div><h4 class="hphase__name">${p.name}</h4><div class="hphase__yrs">${yrs}</div><p class="hphase__dek">${p.dek}</p></header><div class="hphase__body">`;
+    if(keys.length){
+      h+='<div class="hlabel">Key milestones</div><div class="hkeys">'+keys.map(d=>{
+        const g=GROUPS[d.g];
+        return `<article class="hcard${d.tgt?' hcard--tgt':''}" style="--c:${g.color}"><div class="hcard__top"><span class="hcard__y">${d.y}</span><span class="hcard__cat"><i></i>${g.label}</span>${d.tgt?'<span class="chip chip--tgt">Target</span>':''}</div><h5 class="hcard__co">${esc(d.who)}</h5><p class="hcard__t">${esc(cap(d.t))}</p></article>`;
+      }).join('')+'</div>';
+    }
+    if(rest.length){
+      h+=`<div class="hlabel${keys.length?' hlabel--sub':''}">Supporting events</div><ul class="hlist">`+rest.map(d=>{
+        const g=GROUPS[d.g];
+        return `<li class="hrow" style="--c:${g.color}" title="${g.label}"><span class="hrow__y"><i></i>${d.y}</span><span><b>${esc(d.who)}</b> ${esc(d.t)}${d.tgt?' <span class="chip chip--tgt">Target</span>':''}</span></li>`;
+      }).join('')+'</ul>';
+    }
+    h+='</div></section>';
+  });
+  $(id).innerHTML=h;
+}
+
+/* ================= Aurora scale (one square = one truck, drawn to scale) ================= */
+function renderScale(){
+  const c=3.1, cols=200, rows=150, x0=6, gy=34;
+  const gw=cols*c, gh=rows*c, W=Math.round(gw+12);
+  const z=15, zc=20, zr=10, zy=Math.round(gy+gh+74), zw=zc*z, zh=zr*z, H=zy+zh+24;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Unit chart drawn to scale: one square is one truck. About 20 trucks operate today; Aurora targets more than 200 by year-end 2026 and 30,000 by 2030.">`;
+  s+=`<defs><pattern id="u30k" width="${c}" height="${c}" patternUnits="userSpaceOnUse" x="${x0}" y="${gy}"><rect width="2.2" height="2.2" fill="#8BCDFF" opacity=".24"/></pattern></defs>`;
+  s+=`<text x="${x0}" y="20" style="font-size:12px;font-weight:700;letter-spacing:.14em;fill:#89A1B4;">ONE SQUARE = ONE TRUCK · 30,000 SQUARES</text>`;
+  s+=`<rect x="${x0}" y="${gy}" width="${gw}" height="${gh}" fill="url(#u30k)" stroke="#8BCDFF" stroke-opacity=".5" stroke-dasharray="5 4"/>`;
+  s+=`<rect x="${x0}" y="${gy}" width="${20*c}" height="${10*c}" fill="none" stroke="#DCE5ED" stroke-width="1.2" stroke-dasharray="3 2"/>`;
+  s+=`<rect x="${x0}" y="${gy}" width="${20*c}" height="${c}" fill="#8BCDFF"/>`;
+  s+=`<text x="${W-14}" y="${gy+gh-16}" text-anchor="end" style="font-size:30px;font-weight:700;letter-spacing:-.5px;fill:#8BCDFF;paint-order:stroke;stroke:#292A4E;stroke-width:7px;">30,000 · 2030 target</text>`;
+  // funnel to zoom
+  s+=`<path d="M${x0},${gy+10*c} L${x0},${zy-26} M${x0+20*c},${gy+10*c} L${x0+zw},${zy-26}" stroke="#5A7A94" stroke-width="1.2" stroke-dasharray="2 4" fill="none"/>`;
+  s+=`<text x="${x0}" y="${zy-8}" style="font-size:12px;font-weight:700;letter-spacing:.14em;fill:#89A1B4;">ZOOM · THE FIRST 200 SQUARES</text>`;
+  for(let r=0;r<zr;r++)for(let k=0;k<zc;k++){
+    const x=x0+k*z, y=zy+r*z, act=r===0;
+    s+= act ? `<rect x="${x}" y="${y}" width="${z-3}" height="${z-3}" rx="2" fill="#8BCDFF"/>`
+            : `<rect x="${x+.5}" y="${y+.5}" width="${z-4}" height="${z-4}" rx="2" fill="rgba(220,229,237,.06)" stroke="#DCE5ED" stroke-opacity=".6" stroke-dasharray="3 2"/>`;
+  }
+  const lx=x0+zw+16;
+  s+=`<text x="${lx}" y="${zy+11}" style="font-size:17px;font-weight:700;fill:#8BCDFF;">~20 today</text><text x="${lx}" y="${zy+29}" style="font-size:12.5px;font-weight:600;fill:#DCE5ED;">Actual · in operation</text>`;
+  s+=`<text x="${lx}" y="${zy+z*4+8}" style="font-size:17px;font-weight:700;fill:#FFFFFF;">&gt;200</text><text x="${lx}" y="${zy+z*4+26}" style="font-size:12.5px;font-weight:600;fill:#DCE5ED;">Target · year-end 2026</text>`;
+  s+='</svg>';
+  $('scale-viz').innerHTML=s;
+}
+
+/* ================= V5 — capital ================= */
+function renderCapital(){
+  const F=DATA.funding, av=F.totalAV, ev=F.totalEV, tot=F.total, pAV=av/tot*100;
+  $('split').innerHTML=
+    `<div class="split-bar__total">Disclosed capital 2021–2026: <b>${fmtM(tot)}</b></div>`+
+    `<div class="split-bar__bar" role="img" aria-label="Autonomous trucks ${fmtM(av)}, ${Math.round(pAV)} percent; electric trucks ${fmtM(ev)}, ${Math.round(100-pAV)} percent">`+
+    `<div class="split-bar__seg" style="width:${pAV}%;background:var(--col-av);"><b>${fmtM(av)}</b><small>Autonomous · ${Math.round(pAV)}%</small></div>`+
+    `<div class="split-bar__seg split-bar__seg--ev" style="width:${100-pAV}%;background:var(--col-ev);"><b>${fmtM(ev)}</b><small>Electric · ${Math.round(100-pAV)}%</small></div></div>`;
+  const ys=F.years, maxV=4400, H=250;
+  const segs=[['avPub','var(--col-av)','AV SPACs & public offerings'],['avVen','#528DBC','AV venture'],['evVen','var(--col-ev)','EV venture']];
+  let h='<div class="ybars__plot" role="img" aria-label="'+ys.map(d=>`${d.y}: ${d.total?fmtM(d.total):'no disclosed deals'}`).join('; ')+'">';
+  ys.forEach((d,i)=>{
+    h+='<div class="ybar">';
+    if(d.total>0){
+      h+=`<div class="ybar__tot${d.y===2021?' ybar__tot--hi':''}">${fmtM(d.total)}</div><div class="ybar__stack" style="--i:${i};height:${d.total/maxV*H}px">`;
+      segs.forEach(([k,col,lab])=>{ const v=d[k]; if(!v) return; const px=v/maxV*H; h+=`<div class="ybar__seg" title="${lab}: ${fmtM(v)}" style="height:${px}px;background:${col};">${px>=56?fmtM(v):''}</div>`; });
+      h+='</div>';
+    } else h+='<div class="ybar__none">No disclosed deals</div>';
+    h+='</div>';
+  });
+  h+='</div>';
+  const later=ys.filter(d=>d.y>2021).reduce((s,d)=>s+d.total,0), y21=ys.find(d=>d.y===2021);
+  h+=`<div class="ybars__x">`+ys.map(d=>`<span class="${d.y===2021?'hi':''}">${d.y}${d.y===2026?' YTD':''}</span>`).join('')+'</div>';
+  h+=`<div class="ybars__sum"><b>2022–2026 combined: ${fmtM(later)}</b> across five years, against ${fmtM(y21.total)} in 2021 alone</div>`;
+  h=`<div class="ybars__note"><b>2021 listing wave:</b> TuSimple IPO, Aurora and Embark SPACs — ${fmtM(y21.avPub)} of the year's ${fmtM(y21.total)}</div>`+h;
+  $('ybars').innerHTML=h;
+}
+
+/* ================= V3 — ambition vs outcome ================= */
+const AO = [
+  {co:'Nikola',kind:'Peak market value · 2020',amb:'~$26–30B',st:'closed',stL:'Chapter 11',out:'Chapter 11, 2025',note:'About $47M cash at filing'},
+  {co:'Embark',kind:'SPAC valuation · 2021',amb:'$5.2B',st:'closed',stL:'Sold',outKind:'Acquisition price',out:'Sold for ~$71M, Aug 2023',note:'Acquired by Applied Intuition — about 1% of the SPAC valuation',contrast:[5200,71]},
+  {co:'TuSimple',kind:'IPO proceeds · April 2021',amb:'$1.35B',st:'other',stL:'Exited US',out:'US wind-down, Dec 2023',note:'Exit from the US market'},
+  {co:'Volta Trucks',kind:'Capital raised in total',amb:'$390.9M',st:'closed',stL:'Bankrupt',out:'Bankruptcy, Oct 2023',note:'Assets bought by Luxor Capital, its largest creditor'},
+  {co:'Windrose',kind:'Series B raised · April 2024',amb:'$110M',st:'other',stL:'Distress reported',out:'Distress reported, Jul 2026',note:'WSJ: missing paychecks and a truck'}
+];
+function renderExits(){
+  const byCo=new Map(DATA.exits.map(d=>[d.co,d]));
+  $('ao').innerHTML=AO.map(a=>{
+    const d=byCo.get(a.co); if(!d) throw new Error('exit row missing: '+a.co);
+    const contrast=a.contrast?`<div class="contrast" role="img" aria-label="$5.2 billion SPAC valuation versus $71 million sale price"><div style="width:100%;background:var(--col-av);opacity:.85"></div><div style="width:${Math.max(a.contrast[1]/a.contrast[0]*100,0.8)}%;background:var(--col-fail)"></div></div>`:'';
+    return `<div class="ao__row"><div class="ao__co">${esc(a.co)}<small><span class="chip chip--${d.seg.toLowerCase()}">${d.seg}</span>${esc(d.region)}</small></div>`+
+      `<div class="ao__amb"><div class="ao__kind">${a.kind}</div><b>${a.amb}</b>${contrast}</div><div class="ao__arrow" aria-hidden="true">→</div>`+
+      `<div class="ao__out"><span class="st st--${a.st}">${a.stL}</span>${a.outKind?`<div class="ao__kind">${a.outKind}</div>`:''}<b>${a.out}</b><div class="ao__note">${a.note}</div></div></div>`;
+  }).join('');
+  const main=new Set(AO.map(a=>a.co));
+  $('ao-minor').innerHTML=DATA.exits.filter(d=>!main.has(d.co)).map(d=>
+    `<li><div><b>${esc(d.co)}</b> <span class="chip chip--${d.seg.toLowerCase()}">${d.seg}</span></div><span><b>${d.y} · ${esc(d.out)}</b> — ${esc(d.ctx)}</span></li>`).join('');
+}
+
+/* ================= V4 — map ================= */
+const MAP_POS={'United States':[-98,39],'Canada':[-112,61],'China':[104,34],'India':[79,21],'Europe':[10,50],'Japan & Korea':[134,37]};
+function renderMap(){
+  const w=960,h=470;
+  const proj=d3.geoNaturalEarth1().fitExtent([[10,10],[w-10,h-10]],{type:'MultiPoint',coordinates:[[-128,66],[150,66],[-128,8],[150,8]]});
+  const path=d3.geoPath(proj);
+  const colors={EV:'#3EC6C6',AV:'#8BCDFF',BOTH:'#B79CFF'};
+  const pie=d3.pie().sort(null).value(d=>d.v);
+  let s=`<svg viewBox="0 0 ${w} ${h}" class="map-svg" role="img" aria-label="${DATA.map.map(m=>`${m.region}: ${m.EV} EV, ${m.AV} AV${m.BOTH?`, ${m.BOTH} both`:''}`).join('; ')}. Circle size shows database coverage, not market size."><rect class="sphere" width="${w}" height="${h}" rx="12"/><g id="land"></g><g>`;
+  DATA.map.forEach(m=>{
+    const tot=m.EV+m.AV+m.BOTH, r=12+4.6*Math.sqrt(tot);
+    const [x,y]=proj(MAP_POS[m.region]);
+    const arc=d3.arc().innerRadius(r*0.5).outerRadius(r);
+    s+=`<g transform="translate(${x},${y})"><circle r="${r+3}" fill="#221E41" opacity=".75"/>`;
+    pie([{k:'EV',v:m.EV},{k:'AV',v:m.AV},{k:'BOTH',v:m.BOTH}].filter(p=>p.v>0)).forEach(p=>{ s+=`<path d="${arc(p)}" fill="${colors[p.data.k]}" stroke="#221E41" stroke-width="1.5"/>`; });
+    s+=`<text y="${tot>=10?7:6}" text-anchor="middle" style="font-size:${tot>=10?20:16}px;font-weight:700;fill:#FFFFFF;">${tot}</text>`;
+    s+=`<text class="map-lbl" y="${r+20}" text-anchor="middle">${m.region}</text></g>`;
+  });
+  s+='</g></svg>';
+  $('map').innerHTML=s;
+  const drawLand=topo=>{ const land=topojson.feature(topo,topo.objects.countries); $('land').innerHTML=land.features.map(f=>`<path class="land" d="${path(f)}"/>`).join(''); };
+  if(window.WORLD_110M) drawLand(window.WORLD_110M);   // local copy: deploy/countries-110m.js
+  else fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json()).then(drawLand).catch(()=>{});
+  const order=['United States','China','Europe','India','Canada','Japan & Korea'];
+  const feat={'United States':'Aurora, Kodiak, Gatik, Waabi, Plus · Tesla, Nikola','China':'Pony.ai, TrunkTech, Inceptio · BYD, DeepWay, Sany','Europe':'Einride · Volvo, Daimler, MAN/Traton, Scania','India':'Delta X, EVage, Euler, Etrio','Canada':'Lion Electric, Edison Motors','Japan & Korea':'Robotruck (JP), Rideflux (KR)'};
+  $('region-grid').innerHTML=order.map(k=>{
+    const m=DATA.map.find(x=>x.region===k); if(!m) return '';
+    return `<div class="region-card"><div class="region-card__name">${k}</div><div class="region-card__nums"><span><b style="color:var(--col-ev)">${m.EV}</b><small>EV</small></span><span><b style="color:var(--col-av)">${m.AV}</b><small>AV</small></span>${m.BOTH?`<span><b style="color:var(--col-cap)">${m.BOTH}</b><small>both</small></span>`:''}</div><div class="region-card__names">${feat[k]}</div></div>`;
+  }).join('');
+}
+
+/* ================= V6 — ecosystem ================= */
+const NODE_COL={oem:'#FFFFFF',dev:'#8BCDFF',cust:'#FFB935',tech:'#5A7A94'};
+const TYPE_LAB={oem:'OEM',dev:'Developer / operator',cust:'Shipper / carrier',tech:'Supplier'};
+function ecosystem(){
+  const nodes=DATA.alli.nodes.map(d=>({...d})), links=DATA.alli.links.map(d=>({...d}));
+  const byId=new Map(nodes.map(n=>[n.id,n]));
+  nodes.forEach(n=>{ n.ties=[]; });
+  links.forEach(l=>{ byId.get(l.source).ties.push({id:l.target,seg:l.seg}); byId.get(l.target).ties.push({id:l.source,seg:l.seg}); });
+  return {nodes,links,byId};
+}
+function renderNetwork(E){
+  const {nodes,links,byId}=E;
+  const w=900, top=50, bottom=24, rowH=31;
+  const colOf=n=>n.type==='dev'?1:(n.type==='cust'||n.id==='McLeod Software'?2:0);
+  nodes.forEach(n=>{ n.c=colOf(n); n.r=5+1.9*Math.sqrt(n.deg)+(n.both?2:0); n.nb=n.ties.map(t=>byId.get(t.id)); });
+  const hubIds=new Set(nodes.filter(n=>n.both).map(n=>n.id));
+  const touchesHub=n=>n.both||n.ties.some(t=>hubIds.has(t.id));
+  const cols=[0,1,2].map(c=>nodes.filter(n=>n.c===c));
+  cols.forEach(a=>a.sort((p,q)=>q.deg-p.deg||p.id.localeCompare(q.id)));
+  const setPos=()=>cols.forEach(a=>a.forEach((n,i)=>{ n.p=a.length>1?i/(a.length-1):.5; }));
+  setPos();
+  for(let it=0;it<10;it++){ [1,0,2].forEach(c=>{ cols[c].forEach(n=>{ const o=n.nb.filter(m=>m.c!==c); n.bc=o.length?o.reduce((s,m)=>s+m.p,0)/o.length:n.p; }); cols[c].sort((p,q)=>p.bc-q.bc||q.deg-p.deg); setPos(); }); }
+  const maxN=Math.max(...cols.map(a=>a.length)), h=top+bottom+(maxN-1)*rowH, X=[210,470,690];
+  cols.forEach((a,c)=>a.forEach((n,i)=>{ n.x=X[c]; n.y=top+(a.length>1?i/(a.length-1):.5)*(maxN-1)*rowH; }));
+  let s=`<svg viewBox="0 0 ${w} ${h}" class="net-svg" role="img" aria-label="Alliance network: ${nodes.length} companies and ${links.length} partnerships or orders, arranged as truck makers and suppliers, developers and operators, and customers. Six companies tie both electric and autonomous trucking together.">`;
+  [['OEMs & suppliers',X[0]-70],['Developers & operators',X[1]],['Shippers, carriers & software',X[2]+60]].forEach(([t,x])=>{ s+=`<text x="${x}" y="16" text-anchor="middle" style="font-family:var(--font-d);font-size:10.5px;font-weight:700;letter-spacing:1.5px;fill:#89A1B4;">${t.toUpperCase()}</text>`; });
+  s+='<g id="net-links">';
+  links.forEach(l=>{
+    const a=byId.get(l.source), b=byId.get(l.target); const [p,q]=a.x<=b.x?[a,b]:[b,a];
+    const d=p.x===q.x?`M${p.x},${p.y} C${p.x-36},${p.y} ${p.x-36},${q.y} ${q.x},${q.y}`:`M${p.x},${p.y} C${(p.x+q.x)/2},${p.y} ${(p.x+q.x)/2},${q.y} ${q.x},${q.y}`;
+    const ev=l.seg==='EV', both=l.seg==='BOTH', hub=hubIds.has(l.source)||hubIds.has(l.target);
+    const col=both?'#B79CFF':(ev?'#3EC6C6':'#8BCDFF');
+    s+=`<path data-a="${esc(a.id)}" data-b="${esc(b.id)}" data-hub="${hub?1:0}" d="${d}" fill="none" stroke="${col}" stroke-opacity="${hub?.95:.3}" stroke-width="${hub?(both?2.8:2.2):1.1}" ${ev?'stroke-dasharray="5 4"':''}/>`;
+  });
+  s+='</g><g id="net-nodes">';
+  nodes.forEach(n=>{
+    const lvl=n.both?2:(touchesHub(n)?1:0);
+    const lx=n.c===0?-(n.r+8):(n.c===1?0:n.r+8), anchor=n.c===0?'end':(n.c===1?'middle':'start'), ly=n.c===1?-(n.r+7):4.5;
+    const fs=[11.5,12.5,14][lvl], fw=[500,600,700][lvl], fill=['#89A1B4','#F2F4F6','#FFFFFF'][lvl];
+    s+=`<g class="node" tabindex="0" role="button" aria-label="${esc(n.id)}: ${n.deg} ties" data-id="${esc(n.id)}" transform="translate(${n.x},${n.y})"><circle r="${n.r}" fill="${NODE_COL[n.type]}" stroke="${n.both?'#B79CFF':'#292A4E'}" stroke-width="${n.both?3.5:1.5}"/>`+
+       `<text x="${lx}" y="${ly}" text-anchor="${anchor}" style="font-size:${fs}px;font-weight:${fw};fill:${fill};paint-order:stroke;stroke:#292A4E;stroke-width:4px;stroke-linejoin:round;">${esc(n.id)}</text></g>`;
+  });
+  s+='</g></svg>';
+  const root=$('net'); root.innerHTML=s;
+  const svg=root.querySelector('svg');
+  const adj=new Map(nodes.map(n=>[n.id,new Set([n.id,...n.ties.map(t=>t.id)])]));
+  let pinned=null;
+  const focus=idv=>{
+    svg.querySelectorAll('g.node').forEach(g=>g.classList.toggle('dim',idv!==null&&!adj.get(idv).has(g.dataset.id)));
+    svg.querySelectorAll('#net-links path').forEach(p=>{
+      const on=idv!==null&&(p.dataset.a===idv||p.dataset.b===idv);
+      p.classList.toggle('dim',idv!==null&&!on);
+      if(on){ p.setAttribute('stroke-opacity','.95'); p.setAttribute('stroke-width','2.4'); }
+      else { const hub=p.dataset.hub==='1'; p.setAttribute('stroke-opacity',hub?'.95':'.3'); p.setAttribute('stroke-width',hub?(p.getAttribute('stroke')==='#B79CFF'?'2.8':'2.2'):'1.1'); }
+    });
+  };
+  svg.querySelectorAll('g.node').forEach(g=>{
+    g.addEventListener('mouseenter',()=>{ if(pinned===null) focus(g.dataset.id); });
+    g.addEventListener('mouseleave',()=>{ if(pinned===null) focus(null); });
+    g.addEventListener('focus',()=>{ if(pinned===null) focus(g.dataset.id); });
+    g.addEventListener('blur',()=>{ if(pinned===null) focus(null); });
+    g.addEventListener('click',e=>{ e.stopPropagation(); pinned=pinned===g.dataset.id?null:g.dataset.id; focus(pinned); });
+    g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); g.dispatchEvent(new MouseEvent('click',{bubbles:true})); } });
+  });
+  svg.addEventListener('click',()=>{ pinned=null; focus(null); });
+}
+function renderBridges(E){
+  const both=E.nodes.filter(n=>n.both).sort((a,b)=>b.deg-a.deg);
+  $('bridges').innerHTML='<div class="bridges__h">Operating across both revolutions</div>'+both.map(n=>{
+    const ev=n.ties.filter(t=>t.seg!=='AV').map(t=>t.id), av=n.ties.filter(t=>t.seg!=='EV').map(t=>t.id);
+    return `<div class="bridge"><b>${esc(n.id)}</b><small>${TYPE_LAB[n.type]}</small><p><em style="color:var(--col-ev)">EV</em> ${ev.map(esc).join(', ')}<br><em style="color:var(--col-av)">AV</em> ${av.map(esc).join(', ')}</p></div>`;
+  }).join('');
+}
+function renderHubs(E){
+  const hubs=E.nodes.filter(n=>n.deg>=2).sort((a,b)=>b.deg-a.deg||a.id.localeCompare(b.id));
+  $('hubs').innerHTML='<div class="bridges__h" style="margin-top:6px;">Main actors and their ties</div>'+hubs.map(n=>
+    `<div class="hub"><div class="hub__h"><i style="background:${NODE_COL[n.type]};${n.both?'box-shadow:0 0 0 2px #B79CFF;':''}"></i><b>${esc(n.id)}</b><small>${TYPE_LAB[n.type]}</small></div><div class="hub__ties">${n.ties.map(t=>`<span class="tie${t.seg==='EV'?' tie--ev':(t.seg==='BOTH'?' tie--both':'')}">${esc(t.id)}</span>`).join('')}</div></div>`).join('');
+}
+
+/* ================= boot ================= */
+renderHistory('hist-ev','ev');
+renderHistory('hist-av','av');
+renderScale();
+renderCapital();
+renderExits();
+renderMap();
+const ECO=ecosystem();
+renderNetwork(ECO); renderBridges(ECO); renderHubs(ECO);
+
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce||!('IntersectionObserver' in window)){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible')); }
+else{
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+</script>
+
+</body></html>

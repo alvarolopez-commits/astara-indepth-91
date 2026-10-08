@@ -16,7 +16,7 @@ HEAD = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="deploy/img/hero-1672.webp" imagesrcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w" imagesizes="(min-width:900px) 76vw, 100vw">
+<link rel="preload" as="image" href="deploy/img/hero-1672.webp" imagesrcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w" imagesizes="100vw">
 <style>
 """
 

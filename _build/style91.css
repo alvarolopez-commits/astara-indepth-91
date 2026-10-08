@@ -72,32 +72,33 @@ a:hover{color:#B3DDFF;}
 .reading{max-width:var(--read);}
 
 /* ---------- 3. COVER ---------- */
+/* Same language as the #88/#90 covers: full-bleed image, darkened with a purple gradient,
+   text at the left. Below 900px the image sits above the title, uncropped. */
 .cover{position:relative;background:var(--bg);overflow:hidden;}
-.cover__topbar{position:relative;z-index:3;display:flex;align-items:center;gap:12px;flex-wrap:wrap;row-gap:8px;max-width:var(--wide);margin:0 auto;padding:var(--g) var(--g) 0;}
+.cover__topbar{position:relative;z-index:3;display:flex;align-items:center;gap:12px;flex-wrap:wrap;row-gap:8px;padding:var(--g) var(--g) 0;}
 .cover__divider{width:1px;height:16px;background:rgba(220,229,237,.3);flex:none;}
 .cover__label{font-family:var(--font-b);font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;}
-.cover__inner{position:relative;z-index:2;display:grid;max-width:var(--wide);margin:0 auto;}
-.cover__photo{position:relative;grid-area:1/1;justify-self:end;width:100%;margin:0;}
+.cover__photo{position:relative;margin:0;}
 .cover__photo img{width:100%;aspect-ratio:16/9;object-fit:cover;}
-.cover__photo::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(34,30,65,0) 55%,var(--bg) 100%);}
-.cover__content{position:relative;z-index:2;grid-area:2/1;padding:0 var(--g) var(--sp-6);margin-top:calc(-1*clamp(48px,12vw,110px));}
+.cover__photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(34,30,65,.35) 0%,rgba(34,30,65,0) 30%,var(--bg) 100%);}
+.cover__content{position:relative;z-index:2;padding:0 var(--g) var(--sp-6);margin-top:calc(-1*clamp(48px,12vw,110px));}
 .cover__pill{display:inline-flex;border:1px solid rgba(220,229,237,.28);border-radius:20px;padding:6px 14px;margin-bottom:var(--sp-4);}
 .cover__pill span{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:2px;color:var(--txt-sec);text-transform:uppercase;}
 .cover__title{font-family:var(--font-d);font-size:var(--fs-display);font-weight:700;line-height:1.02;letter-spacing:-.01em;color:var(--txt);text-transform:uppercase;margin-bottom:var(--sp-4);}
 .cover__title span{color:var(--accent);}
-.cover__sub{font-size:clamp(16px,1.7vw,19px);font-weight:500;line-height:1.55;color:var(--txt);max-width:500px;}
+.cover__sub{font-size:clamp(16px,1.7vw,19px);font-weight:500;line-height:1.55;color:var(--txt);max-width:520px;}
 .cover__meta{margin-top:var(--sp-5);display:flex;gap:var(--sp-4);flex-wrap:wrap;align-items:center;}
 .cover__date{font-family:var(--font-b);font-size:12px;font-weight:600;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
 .cover__tag{font-family:var(--font-b);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--ink);background:var(--accent);padding:5px 11px;border-radius:4px;text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
 @media(min-width:900px){
-  .cover__inner{min-height:min(80vh,640px);}
-  .cover__photo{grid-area:1/1;width:76%;align-self:end;}
+  .cover{display:flex;flex-direction:column;width:100%;aspect-ratio:16/9;min-height:560px;max-height:780px;}
+  .cover__photo{position:absolute;inset:0;}
+  .cover__photo img{height:100%;aspect-ratio:auto;object-position:center 52%;}
   .cover__photo::after{background:
-    linear-gradient(90deg,var(--bg) 0%,rgba(34,30,65,.55) 22%,rgba(34,30,65,0) 46%),
-    linear-gradient(180deg,var(--bg) 0%,rgba(34,30,65,0) 24%),
-    linear-gradient(0deg,var(--bg) 0%,rgba(34,30,65,0) 12%);}
-  .cover__content{grid-area:1/1;align-self:center;margin-top:0;padding:var(--sp-6) var(--g);max-width:56%;}
+    linear-gradient(90deg,rgba(34,30,65,.92) 0%,rgba(34,30,65,.72) 34%,rgba(34,30,65,.40) 60%,rgba(34,30,65,.30) 100%),
+    linear-gradient(180deg,rgba(34,30,65,.50) 0%,rgba(34,30,65,0) 28%,rgba(34,30,65,.72) 80%,var(--bg) 100%);}
+  .cover__content{margin-top:auto;padding:0 var(--g) var(--sp-7);}
+  .cover__title{font-size:clamp(34px,4.6vw,64px);max-width:min(40vw,560px);}
 }
 
 /* ---------- 4. CHAPTERS & READING ---------- */
